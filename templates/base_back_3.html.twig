@@ -12,6 +12,9 @@
     {% block stylesheets %}
         <link rel="stylesheet" href="{{ asset('equip3/squeleton-back.css') }}">
     {% endblock %}
+    {% block javascripts %}
+        {{ encore_entry_script_tags('app') }}
+    {% endblock %}
     <script src="{{ asset('equip3/js/menu_aside.js') }}"></script>
     <script src="{{ asset('equip3/js/menu-burguer.js') }}"></script>
     <script src="{{ asset('equip3/js/modal.js') }}"></script>

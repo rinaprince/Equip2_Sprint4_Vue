@@ -1,8 +1,9 @@
-{% extends 'base_back_1.html.twig' %}
+{% extends 'base_back_3.html.twig' %}
 
 {% block title %}Backoffice{% endblock %}
 
 {% block body %}
 
-    <h1>prova</h1>
+    <h1>Bienvenida: </h1>
+    <div {{ vue_component('Hello', { 'name': 'Marina' }) }}></div>
 {% endblock %}
