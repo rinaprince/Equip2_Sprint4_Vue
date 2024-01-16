@@ -42,6 +42,7 @@ class VehicleType extends AbstractType
                 'class' => Order::class,
 'choice_label' => 'id',
             ])
+
         ;
     }
 
