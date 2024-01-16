@@ -27,7 +27,6 @@ class Vehicle
     #[ORM\Column(length: 255)]
     #[Assert\NotBlank]
     #[Assert\Type('string')]
-    #[Assert\Length('max:255')]
     private ?string $observedDamages = null;
 
     #[ORM\Column]
@@ -58,7 +57,6 @@ class Vehicle
     #[ORM\Column(length: 255)]
     #[Assert\NotBlank]
     #[Assert\Type('string')]
-    #[Assert\Length('max:255')]
     private ?string $description = null;
 
     #[ORM\Column(length: 255)]
