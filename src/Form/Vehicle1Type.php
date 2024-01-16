@@ -32,17 +32,17 @@ class Vehicle1Type extends AbstractType
             ->add('registrationDate')
             ->add('model', EntityType::class, [
                 'class' => Model::class,
-'choice_label' => 'id',
+                'choice_label' => 'name',
             ])
             ->add('provider', EntityType::class, [
                 'class' => Provider::class,
-'choice_label' => 'id',
+                'choice_label' => 'bussinessname',
+
             ])
             ->add('vehicleOrder', EntityType::class, [
                 'class' => Order::class,
-'choice_label' => 'id',
-            ])
-        ;
+                'choice_label' => 'id',
+            ]);
     }
 
     public function configureOptions(OptionsResolver $resolver): void

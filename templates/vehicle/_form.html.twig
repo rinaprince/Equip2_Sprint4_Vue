@@ -1,4 +1,52 @@
 {{ form_start(form) }}
+    <div class="row">
+        <div class="col-2">
+            {{ form_row(form.plate) }}
+        </div>
+
+        <div class="col-5">
+            {{ form_row(form.model) }}
+        </div>
+        <div class="col-5">
+            {{ form_row(form.gearShit) }}
+        </div>
+
+        <div class="col-4">
+            {{ form_row(form.chassisNumber) }}
+        </div>
+        <div class="col-4">
+            {{ form_row(form.buyPrice) }}
+        </div>
+        <div class="col-4">
+            {{ form_row(form.sellPrice) }}
+        </div>
+
+        <div class="col-4">
+            {{ form_row(form.kilometers) }}
+        </div>
+        <div class="col-4">
+            {{ form_row(form.fuel) }}
+        </div>
+        <div class="col-4">
+            {{ form_row(form.iva) }}
+        </div>
+        <div class="col-12">
+            {{ form_row(form.observedDamages) }}
+        </div>
+        <div class="col-12">
+            {{ form_row(form.description) }}
+        </div>
+        <div class="col-4">
+            {{ form_row(form.isNew) }}
+        </div>
+        <div class="col-4">
+            {{ form_row(form.transportIncluded) }}
+        </div>
+        <div class="col-4">
+            {{ form_row(form.color) }}
+        </div>
+
+    </div>
     {{ form_widget(form) }}
     <button class="btn">{{ button_label|default('Save') }}</button>
 {{ form_end(form) }}
