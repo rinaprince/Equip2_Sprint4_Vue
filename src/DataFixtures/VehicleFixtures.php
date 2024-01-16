@@ -95,5 +95,4 @@ class VehicleFixtures extends Fixture
             [ProviderFixtures::class];
     }
 
-
 }

@@ -1,0 +1,78 @@
+{% extends 'base_back_3.html.twig' %}
+
+{% block title %}Vehicle{% endblock %}
+
+{% block body %}
+    <h1>Vehicle</h1>
+
+    <table class="table">
+        <tbody>
+            <tr>
+                <th>Id</th>
+                <td>{{ vehicle.id }}</td>
+            </tr>
+            <tr>
+                <th>Plate</th>
+                <td>{{ vehicle.plate }}</td>
+            </tr>
+            <tr>
+                <th>ObservedDamages</th>
+                <td>{{ vehicle.observedDamages }}</td>
+            </tr>
+            <tr>
+                <th>Kilometers</th>
+                <td>{{ vehicle.kilometers }}</td>
+            </tr>
+            <tr>
+                <th>BuyPrice</th>
+                <td>{{ vehicle.buyPrice }}</td>
+            </tr>
+            <tr>
+                <th>SellPrice</th>
+                <td>{{ vehicle.sellPrice }}</td>
+            </tr>
+            <tr>
+                <th>Fuel</th>
+                <td>{{ vehicle.fuel }}</td>
+            </tr>
+            <tr>
+                <th>Iva</th>
+                <td>{{ vehicle.iva }}</td>
+            </tr>
+            <tr>
+                <th>Description</th>
+                <td>{{ vehicle.description }}</td>
+            </tr>
+            <tr>
+                <th>ChassisNumber</th>
+                <td>{{ vehicle.chassisNumber }}</td>
+            </tr>
+            <tr>
+                <th>GearShit</th>
+                <td>{{ vehicle.gearShit }}</td>
+            </tr>
+            <tr>
+                <th>IsNew</th>
+                <td>{{ vehicle.isNew ? 'Yes' : 'No' }}</td>
+            </tr>
+            <tr>
+                <th>TransportIncluded</th>
+                <td>{{ vehicle.transportIncluded ? 'Yes' : 'No' }}</td>
+            </tr>
+            <tr>
+                <th>Color</th>
+                <td>{{ vehicle.color }}</td>
+            </tr>
+            <tr>
+                <th>RegistrationDate</th>
+                <td>{{ vehicle.registrationDate ? vehicle.registrationDate|date('Y-m-d') : '' }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <a href="{{ path('app_vehicle_index') }}">back to list</a>
+
+    <a href="{{ path('app_vehicle_edit', {'id': vehicle.id}) }}">edit</a>
+
+    {{ include('vehicle/_delete_form.html.twig') }}
+{% endblock %}
