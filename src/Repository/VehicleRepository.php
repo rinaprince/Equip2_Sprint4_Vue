@@ -21,20 +21,23 @@ class VehicleRepository extends ServiceEntityRepository
         parent::__construct($registry, Vehicle::class);
     }
 
-//    /**
-//     * @return VehicleFixtures[] Returns an array of VehicleFixtures objects
-//     */
-//    public function findByExampleField($value): array
-//    {
-//        return $this->createQueryBuilder('v')
-//            ->andWhere('v.exampleField = :val')
-//            ->setParameter('val', $value)
-//            ->orderBy('v.id', 'ASC')
-//            ->setMaxResults(10)
-//            ->getQuery()
-//            ->getResult()
-//        ;
-//    }
+    /**
+     * @return VehicleFixtures[] Returns an array of VehicleFixtures objects
+     */
+    public function findByText(string $value): array
+    {
+        return $this->createQueryBuilder('v')
+            ->andWhere('v.color LIKE :val')
+            ->orWhere('v.plate LIKE :val')
+            ->orWhere('v.fuel LIKE :val')
+            ->orWhere('v.gearShit LIKE :val')
+            ->orWhere('v.buyPrice LIKE :val')
+            ->setParameter('val', "%$value%")
+            ->orderBy('v.id', 'ASC')
+            //->setMaxResults(5)
+            ->getQuery()
+            ->getResult();
+    }
 
 //    public function findOneBySomeField($value): ?VehicleFixtures
 //    {

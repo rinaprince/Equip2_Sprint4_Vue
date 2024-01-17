@@ -6,6 +6,7 @@ use App\Entity\Vehicle;
 use App\Form\Vehicle1Type;
 use App\Repository\VehicleRepository;
 use Doctrine\ORM\EntityManagerInterface;
+use Doctrine\ORM\NonUniqueResultException;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
@@ -15,10 +16,17 @@ use Symfony\Component\Routing\Annotation\Route;
 class VehicleController extends AbstractController
 {
     #[Route('/', name: 'app_vehicle_index', methods: ['GET'])]
-    public function index(VehicleRepository $vehicleRepository): Response
+    public function index(Request $request, VehicleRepository $vehicleRepository): Response
     {
+        $q = $request->query->get('q', '');
+
+        if (empty($q))
+            $vehicles = $vehicleRepository->findAll();
+        else
+            $vehicles = $vehicleRepository->findByText($q);
+
         return $this->render('vehicle/index.html.twig', [
-            'vehicles' => $vehicleRepository->findAll(),
+            'vehicles' => $vehicles,
         ]);
     }
 

@@ -5,26 +5,31 @@
 {% block body %}
     <h1>Vehicle index</h1>
 
+    <form method="get" role="search">
+        <input type="search" name="q" placeholder="Search..." aria-label="Search">
+        <button type="submit">Search</button>
+    </form>
+
     <table class="table">
         <thead>
-            <tr>
-                <th>Id</th>
-                <th>Plate</th>
-                <th>ObservedDamages</th>
-                <th>Kilometers</th>
-                <th>BuyPrice</th>
-                <th>SellPrice</th>
-                <th>Fuel</th>
-                <th>Iva</th>
-                <th>Description</th>
-                <th>ChassisNumber</th>
-                <th>GearShit</th>
-                <th>IsNew</th>
-                <th>TransportIncluded</th>
-                <th>Color</th>
-                <th>RegistrationDate</th>
-                <th>actions</th>
-            </tr>
+        <tr>
+            <th>Id</th>
+            <th>Plate</th>
+            <th>ObservedDamages</th>
+            <th>Kilometers</th>
+            <th>BuyPrice</th>
+            <th>SellPrice</th>
+            <th>Fuel</th>
+            <th>Iva</th>
+            <th>Description</th>
+            <th>ChassisNumber</th>
+            <th>GearShit</th>
+            <th>IsNew</th>
+            <th>TransportIncluded</th>
+            <th>Color</th>
+            <th>RegistrationDate</th>
+            <th>actions</th>
+        </tr>
         </thead>
         <tbody>
         {% for vehicle in vehicles %}
