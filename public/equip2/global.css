@@ -1,0 +1,390 @@
+/* Importació de la font de lletra DM Sans */
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:opsz@9..40&display=swap');
+
+/* Reiniciem els margins i paddings predeterminats del navegador */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root{
+    --primary-color : #181d33ff;
+    --secundary-color :#e7d381ff;
+    --tertiary-color :#aa8e31ff;
+    --quaternary-color :#e7e7e9;
+    --primary-fontFamily :'DM Sans';
+
+    /* Botons de taules backoffice*/
+    --button-delete : #f44336;
+    --button-edit : #008CBA;
+    --button-details : #4CAF50;
+
+    /* Hovers en els botons */
+    --button-delete-hover : #8a1c24;
+    --button-edit-hover : #004080;
+    --button-details-hover : #388E3C;
+}
+
+body {
+    background-color: #e7e7e9ff;
+    font-family: 'DM Sans', 'Courier New', Courier, monospace;
+}
+
+/*  ----------------------------------------------- MENU DE NAVEGACIÓ Y HEADER-----------------------------------------------  */
+
+
+.div-header {
+    justify-content: center;
+    align-items: center;
+    background-color: var(--primary-color);
+    font-family: 'Playfair Display', serif;
+    font-size: 28px;
+    padding: 15px 0;
+}
+
+.div-header .col-4 {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.div-header ul li {
+    list-style: none;
+    display: inline-block;
+    padding: 0 10px;
+}
+
+.div-header ul li a {
+    text-decoration: none;
+    color: var(--secundary-color);
+}
+
+.div-header ul li a:hover {
+    color: var(--tertiary-color );
+}
+
+.div-header>div{
+    display: flex;
+    justify-content: space-between;
+}
+
+.div-header div nav{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+
+.div-header div nav ul{
+    display: flex;
+    justify-content: center;
+    text-align: center;
+}
+
+.ordinador{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.first-nav ul {
+    display: flex;
+    text-align: center;
+    justify-content: center;
+    align-items: center;
+}
+
+.searcher-header {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto;
+    width: 300px;
+    padding: 0;
+}
+
+.searcher-header div:last-child {
+    display: flex;
+    align-items: center;
+    margin: 0 auto;
+    background-color: white;
+    width: 300px;
+    height: 40px;
+    padding: 0;
+    border-radius: 40px 40px 40px 40px;
+}
+
+.input-searcher-header {
+    flex: 1;
+    border: none;
+    outline: none;
+    font-size: 16px;
+    margin-left: 20px;
+    padding: 0px;
+}
+
+.button-searcher-header {
+    color: black;
+    background-color: #aa8e31ff;
+    cursor: pointer;
+    font-family: 'DM Sans', sans-serif;
+    border: 1px solid #aa8e31ff;
+    border-radius: 0 40px 40px 0;
+    height: 40px;
+    width: 64px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.message {
+    padding: 10px;
+    margin-bottom: 10px;
+    border: 1px solid #ccc;
+    background-color: var(--quaternary-color);
+    color: #721c24;
+}
+
+.ocultMenu {
+    display: none;
+    z-index: 1;
+}
+
+#burger {
+    min-width: 20px;
+    min-height: 15px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-around;
+    cursor: pointer;
+}
+
+#burger>span {
+    border-radius: 5px;
+    background-color: var(--secundary-color);
+    width: 100%;
+    height: 2px;
+    transition: all 300ms ease-out;
+}
+
+#burger.active .line1 {
+    opacity: 0;
+    width: 0;
+}
+
+#burger.active .line2 {
+    transform: translateY(100%) rotate(45deg);
+}
+
+#burger.active .line3 {
+    transform: translateY(-150%) rotate(-45deg);
+}
+
+#menu-mobile {
+    display: none;
+}
+
+.header-icons .hidden-desktop{
+    display: none;
+}
+
+#main-menu li a{
+    color: white;
+    text-decoration: none;
+    width: 100%;
+}
+
+#main-menu ul{
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+}
+
+/* SearchBar Settings */
+.search-bar-container {
+    display: flex;
+    align-items: center;
+    width: 45vw;
+    height: auto;
+    border-radius: 50px;
+    position: relative;
+    transition: width 1.5s, background-color 0s;
+    background-color: white;
+}
+
+.magnifier {
+    width: 25px;
+    cursor: pointer;
+    position: absolute;
+    left: 20px;
+}
+
+.mic-icon {
+    width: 30px;
+    position: absolute;
+    right: 10px;
+    transition: width 0.4s;
+    transition-delay: 1s;
+}
+
+.input-searcher {
+    background-color: transparent;
+    border: none;
+    margin: 10px 50px;
+    width: 100%;
+    outline: none;
+    color: rgb(100, 100, 100);
+    transition: width 1s;
+    transition-delay: 0.5s;
+    font-size: 0.6em;
+}
+
+.active.search-bar-container {
+    width: 50px;
+    background-color: transparent;
+    transition: width 1.5s, background-color 1.5s;
+}
+
+.active .input {
+    width: 0;
+}
+
+.active .mic-icon {
+    width: 0;
+}
+
+.header-icons ul li{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+
+@media (max-width: 770px) {
+
+    #menu-desktop {
+        justify-content: right;
+    }
+
+    #menu-mobile {
+        display: flex;
+        width: auto;
+        order: 2;
+        z-index: 2;
+    }
+
+    .displayHambMenu {
+        display: flex;
+        width: 50%;
+        flex-direction: column;
+        position: absolute;
+        right: 0;
+        top: 80px;
+        background-color: var(--tertiary-color);
+    }
+
+    .hidden {
+        display: none;
+    }
+
+    .first-nav .hidden{
+        display: none;
+    }
+
+    .header-icons .hidden-desktop{
+        display: block;
+    }
+
+    .header-icons li.hidden {
+        display: none;
+    }
+
+    #main-menu li:hover{
+        background-color: var(--tertiary-color);
+    }
+
+    /* Estls menu hamburguesa */
+}
+
+/*  ----------------------------------------------- FOOTER Y MENU NAVEGACIÓ FOOTER -----------------------------------------------  */
+
+/* Div controlador <div class="self-container"> */
+.self-container {
+    background-color:var(--primary-color);
+    font-family: var(--primary-fontFamily), serif;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+.footer-div{
+    background-color: var(--primary-color);
+}
+
+/* Llista d'enllaços <ul class="footer-menu"> */
+.footer-menu {
+    justify-content: center;
+    align-items: center;
+    background-color: var(--primary-color);
+    font-size: 18px;
+    padding: 15px 0;
+}
+
+.footer-menu{
+    display: flex;
+    justify-content: left;
+    align-items: center;
+}
+
+/* Llista d'enllaços <ul class="footer-menu">
+                        <li></li> */
+.footer-menu li {
+    list-style: none;
+    display: inline-block;
+    padding: 0 10px;
+}
+
+.footer-menu li:first-child {
+    padding-left: 30px;
+}
+
+/* Llista d'enllaços <ul class="footer-menu">
+                        <li><a href="#"></a></li> */
+.footer-menu li a {
+    text-decoration: none;
+    color: var(--secundary-color);
+    font-weight: bold;
+}
+
+.footer-menu li a:hover{
+    color: var(--tertiary-color);
+    transition: ease-in .2s;
+}
+
+/* Div que conté el logotip i nom de l'empresa  <div class="nom-logo"> */
+.nom-logo {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 15px;
+}
+
+.nom-logo h3 {
+    color: var(--secundary-color);
+    font-weight: bold;
+    font-size: 28px;
+    margin: 5px;
+}
+
+.nom-logo img {
+    width: 30px;
+}
+
+/* Linía que s'encarrega de separar el contingut <hr class="separator"> */
+.separator {
+    border: 1px solid #e7d381ff;
+    align-self: center;
+    width: 97%;
+}

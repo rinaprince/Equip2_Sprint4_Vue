@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>{% block title %}Welcome!{% endblock %}</title>
+    <link rel="icon"
+          href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 128 128%22><text y=%221.2em%22 font-size=%2296%22>⚫️</text></svg>">
+    <link rel="stylesheet" href="{{  asset('assets/equip2/global.css') }}" type="text/css">
+    <link rel="stylesheet" href="{{  asset('assets/equip2/grid.css') }}" type="text/css">
+    <link rel="stylesheet" href="{{  asset('assets/equip2/normalize.css') }}" type="text/css">
+    <script src="{{ asset('assets/equip2/js/events.js') }}"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css">
+    {% block stylesheets %}
+    {% endblock %}
+
+    {% block javascripts %}
+        {% block importmap %}{{ importmap('app') }}{% endblock %}
+    {% endblock %}
+</head>
+<body>
+<header class="container-fluid">
+    <div class="row div-header">
+        <div class="col-12">
+            <nav class="first-nav">
+                <img src="{{ asset('equip2/ico/logoBHEC.png') }}" alt="logo_BHEC" width="50px">
+                <ul class="hidden">
+                    <li>
+                        <a href="/catalogue_list.php">Catàleg</a>
+                    </li>
+                    <li>
+                        <a href="#">Contacte</a>
+                    </li>
+                </ul>
+            </nav>
+
+            <div class="searcher-header hidden">
+                <div>
+                    <input type="text" class="input-searcher-header" placeholder="Buscar...">
+                    <button class="button-searcher-header"><i class="fas fa-search"></i></button>
+                </div>
+            </div>
+
+            <nav class="header-icons">
+                <ul>
+                    <li class="hidden-desktop">
+                        <a href="#">
+                            <img src="{{ asset('equip2/ico/busqueda-Groc.png') }}" alt="Imatge Notificació" id="busqueda">
+                        </a>
+                    </li>
+                    <li class="hidden">
+                        <a href="#">
+                            <img src="{{ asset('equip2/ico/notificacio-Groc.png') }}" alt="Imatge Notificació"
+                                 id="notificacio">
+                        </a>
+                    </li>
+                    <li class="hidden">
+                        <a href="#">
+                            <img src="{{ asset('equip2/ico/llistaDeDesitjos-Groc.png') }}"
+                                 alt="Imatge Llista De Dessitjos"
+                                 id="desitjos">
+                        </a>
+                    </li>
+                    <li>
+                        <a href="/garage_list.php">
+                            <img src="{{ asset('equip2/ico/garatge-Groc.png') }}" alt="Imatge Garatge" id="garatge">
+                        </a>
+                    </li>
+                    <li>
+                        <a>
+                            <img src="{{ asset('equip2/ico/usuari-Groc.png') }}" alt="Imatge Usuari" id="usuari">
+                        </a>
+                    </li>
+                    <li>
+                        <nav id="menu-mobile">
+                            <div id="burger">
+                                <span class="line1"></span>
+                                <span class="line2"></span>
+                                <span class="line3"></span>
+                            </div>
+                            <div class="ocultMenu">
+                                <nav id="main-menu">
+                                    <ul>
+                                        <li>
+                                            <a href="/catalogue_list.php">
+                                                Catàleg
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="/contacte.html">
+                                                Contacte
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="/contacte.html">
+                                                Notificacions
+                                            </a>
+                                        </li>
+                                    </ul>
+                                </nav>
+                            </div>
+                        </nav>
+                    </li>
+                </ul>
+            </nav>
+        </div>
+    </div>
+</header>
+
+<main>
+    {% block body %}{% endblock %}
+</main>
+
+<footer class="container-fluid">
+    <div class="row footer-div">
+        <div class="col-12">
+            <!-- Div per controlar tot el contingut sense aplicar classes i id's a column -->
+            <div class="self-container">
+                <!-- Div per estructurar el logo i el nom de l'empresa -->
+                <div class="nom-logo">
+                    <img src="{{ asset('equip2/ico/logoBHEC.png') }}" alt="Logotip Empresa" width="50px">
+                    <h3>BHEC</h3>
+                </div>
+                <!-- Línia separadora -->
+                <hr class="separator" />
+
+                <!-- Llista amb els enllaços corresponents -->
+                <ul class="footer-menu">
+                    <li>
+                        <a href="#">FAQ</a>
+                    </li>
+                    <li>
+                        <a href="#">Terms & Conditions</a>
+                    </li>
+                    <li>
+                        <a href="#">Privacy Policy</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</footer>
+</body>
+</html>
