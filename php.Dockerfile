@@ -24,15 +24,29 @@ RUN yes | pecl install xdebug \
     && echo "xdebug.start_upon_error=yes" >> /usr/local/etc/php/conf.d/xdebug.ini \
     && echo "xdebug.start_with_request=yes" >> /usr/local/etc/php/conf.d/xdebug.ini
 
-# Instalar Composer
-RUN curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/local/bin --filename=composer
+
+
 
 # Instalar extensiones y herramientas necesarias para Composer
 RUN apt-get update && apt-get install -y \
+    libpng-dev\
+    libjpeg-dev\
+    libfreetype6-dev \
     zlib1g-dev \
     libzip-dev \
-    unzip \
-    && docker-php-ext-install zip
+    libnss3 \
+    unzip
+
+RUN docker-php-ext-install zip
+
+# Instal·lar la llibreria GD per a gestió de gràfics
+RUN docker-php-ext-configure gd --with-freetype --with-jpeg \
+    && docker-php-ext-install gd
+
+
+# Instalar Composer
+RUN curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/local/bin --filename=composer
+
 
 #Installing Symfony CLI
 RUN curl -sS https://get.symfony.com/cli/installer | bash

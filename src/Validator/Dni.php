@@ -16,5 +16,14 @@ class Dni extends Constraint
      * Any public properties become valid options for the annotation.
      * Then, use these in your validator class.
      */
-    public $message = 'La lletra del Dni no correspon am els números.';
+    public string $message = "La lletra del Dni ({{ string }}) no correspon am els números.";
+    public ?string $mode = null;
+
+    public function __construct(?string $mode = null, ?string $message = null, array $groups = null, $payload = null)
+    {
+        parent::__construct([], $groups, $payload);
+
+        $this->mode = $mode ?? $this->mode;
+        $this->message = $message ?? $this->message;
+    }
 }

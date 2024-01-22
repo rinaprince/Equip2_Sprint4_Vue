@@ -7,7 +7,6 @@ use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
 use Doctrine\DBAL\Types\Types;
 use Doctrine\ORM\Mapping as ORM;
-use Symfony\Component\Validator\Constraints as Assert;
 
 #[ORM\Entity(repositoryClass: VehicleRepository::class)]
 class Vehicle
@@ -18,68 +17,42 @@ class Vehicle
     private ?int $id = null;
 
     #[ORM\Column(length: 20)]
-    #[Assert\NotBlank]
-    #[Assert\Type('string')]
     private ?string $plate = null;
 
     #[ORM\Column(length: 255)]
-    #[Assert\NotBlank]
-    #[Assert\Type('string')]
     private ?string $observedDamages = null;
 
     #[ORM\Column]
-    #[Assert\NotBlank]
-    #[Assert\Type('integer')]
     private ?int $kilometers = null;
 
     #[ORM\Column]
-    #[Assert\NotBlank]
-    #[Assert\Type('float')]
     private ?float $buyPrice = null;
 
     #[ORM\Column]
-    #[Assert\NotBlank]
-    #[Assert\Type('float')]
     private ?float $sellPrice = null;
 
     #[ORM\Column(length: 255)]
-    #[Assert\NotBlank]
-    #[Assert\Type('string')]
     private ?string $fuel = null;
 
     #[ORM\Column]
-    #[Assert\NotBlank]
-    #[Assert\Type('float')]
     private ?float $iva = null;
 
     #[ORM\Column(length: 255)]
-    #[Assert\NotBlank]
-    #[Assert\Type('string')]
     private ?string $description = null;
 
     #[ORM\Column(length: 255)]
-    #[Assert\NotBlank]
-    #[Assert\Type('string')]
     private ?string $chassisNumber = null;
 
     #[ORM\Column(length: 255)]
-    #[Assert\NotBlank]
-    #[Assert\Type('string')]
     private ?string $gearShit = null;
 
     #[ORM\Column]
-    #[Assert\NotBlank]
-    #[Assert\Type('boolean')]
     private ?bool $isNew = null;
 
     #[ORM\Column]
-    #[Assert\NotBlank]
-    #[Assert\Type('boolean')]
     private ?bool $transportIncluded = null;
 
     #[ORM\Column(length: 255)]
-    #[Assert\NotBlank]
-    #[Assert\Type('string')]
     private ?string $color = null;
 
     #[ORM\Column(type: Types::DATE_MUTABLE)]
@@ -378,4 +351,25 @@ class Vehicle
 
         return $this;
     }
+
+    function jsonSerialize(): mixed
+    {
+        return ['id' => $this->id,
+            'plate' => $this->plate,
+            'observedDamages' => $this->observedDamages,
+            'kilometers' => $this->kilometers,
+            'buyPrice' => $this->buyPrice,
+            'sellPrice' => $this->sellPrice,
+            'fuel' => $this->fuel,
+            'iva' => $this->iva,
+            'description' => $this->description,
+            'chassisNumber' => $this->chassisNumber,
+            'gearShit' => $this->gearShit,
+            'isNew' => $this->isNew,
+            'transportIncluded' => $this->transportIncluded,
+            'color' => $this->color,
+            'registrationDate' => $this->registrationDate
+        ];
+    }
+
 }

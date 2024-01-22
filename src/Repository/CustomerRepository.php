@@ -4,7 +4,9 @@ namespace App\Repository;
 
 use App\Entity\Customer;
 use Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository;
+// use Doctrine\DBAL\Query;
 use Doctrine\Persistence\ManagerRegistry;
+use Doctrine\ORM\Query;
 
 /**
  * @extends ServiceEntityRepository<Customer>
@@ -45,4 +47,23 @@ class CustomerRepository extends ServiceEntityRepository
 //            ->getOneOrNullResult()
 //        ;
 //    }
+
+    public function findAllQuery(): Query
+    {
+        return $this->createQueryBuilder('c')
+            ->orderBy('c.name', 'ASC')
+            ->getQuery();
+    }
+
+    public function findAllPaginated(int $page = 1, int $limit = 10): Query
+    {
+        $query = $this->createQueryBuilder('c')
+            ->orderBy('c.name', 'ASC')
+            ->getQuery();
+
+        $query->setFirstResult(($page - 1) * $limit)
+            ->setMaxResults($limit);
+
+        return $query;
+    }
 }

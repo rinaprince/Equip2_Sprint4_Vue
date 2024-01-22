@@ -1,34 +1,49 @@
 {% extends 'base_back_3.html.twig' %}
 
-{% block title %}Invoice{% endblock %}
+{% block title %}Invoice Detail{% endblock %}
+
+{% block stylesheets %}
+    <link rel="stylesheet" href="{{ asset('equip3/css/Personal.css') }}">
+{% endblock %}
 
 {% block body %}
-    <h1>Invoice</h1>
 
-    <table class="table">
-        <tbody>
-            <tr>
-                <th>Id</th>
-                <td>{{ invoice.id }}</td>
-            </tr>
-            <tr>
-                <th>Number</th>
-                <td>{{ invoice.number }}</td>
-            </tr>
-            <tr>
-                <th>Price</th>
-                <td>{{ invoice.price }}</td>
-            </tr>
-            <tr>
-                <th>Date</th>
-                <td>{{ invoice.date ? invoice.date|date('Y-m-d') : '' }}</td>
-            </tr>
-        </tbody>
-    </table>
+    <section class="col-10 contingut">
+        <h1>Invoice Detail</h1>
+        <div id="invoice-table">
+            <table id="invoice-details">
+                <tbody>
+                <tr>
+                    <th>ID:</th>
+                    <td data-title="Id:">{{ invoice.id }}</td>
+                </tr>
+                <tr>
+                    <th>Numero</th>
+                    <td data-title="Numero:">{{ invoice.number }}</td>
+                </tr>
+                <tr>
+                    <th>Precio:</th>
+                    <td data-title="Precio:">{{ invoice.price }}</td>
+                </tr>
+                <tr>
+                    <th>Fecha:</th>
+                    <td data-title="Fecha:">{{ invoice.date ? invoice.date|date('Y-m-d') : '' }}</td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
 
-    <a href="{{ path('app_invoice_index') }}">back to list</a>
+    </section>
+    <a href="{{ path('app_invoice_index') }}">
+        <button><i class="fas fa-arrow-left"></i> back to list</button>
+    </a>
 
-    <a href="{{ path('app_invoice_edit', {'id': invoice.id}) }}">edit</a>
+    <a href="{{ path('app_invoice_edit', {'id': invoice.id}) }}">
+        <button class="edit-button">Edit <i class="fas fa-pencil-alt"></i></button>
+    </a>
 
     {{ include('invoice/_delete_form.html.twig') }}
+    </main>
+
+
 {% endblock %}

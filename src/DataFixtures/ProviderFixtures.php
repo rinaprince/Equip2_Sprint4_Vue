@@ -24,7 +24,7 @@ class ProviderFixtures extends Fixture
 
         for ($i = 0 ; $i < 10 ; $i++) {
             $provider = new Provider();
-            $provider->setBussinessName($this->faker->domainWord);
+            $provider->setBusinessName($this->faker->domainWord);
             $provider->setEmail($this->faker->companyEmail());
             $provider->setPhone($this->faker->phoneNumber);
             $provider->setDni($this->faker->dni());

@@ -1,4 +1,4 @@
-{% extends 'base_back_3.html.twig' %}
+{% extends 'base.html.twig' %}
 
 {% block title %}PrivateCustomer{% endblock %}
 
@@ -38,7 +38,7 @@
         </tbody>
     </table>
 
-    <a href="{{ path('app_private_customer_index') }}">back to list</a>
+    <a href="{{ path('app_customer') }}">back to list</a>
 
     <a href="{{ path('app_private_customer_edit', {'id': private_customer.id}) }}">edit</a>
 

@@ -1,0 +1,31 @@
+:root{
+    --primary-color : #181d33ff;
+    --secundary-color :#e7d381ff;
+    --tertiary-color :#aa8e31ff;
+    --quaternary-color :#e7e7e9;
+    
+    --primary-fontFamily :'DM Sans';
+
+    /** Hover aside color */
+    --hover-aside-color: rgb(194, 162, 56);
+
+    /*Table*/
+    --table-color:#d9d9da;
+    
+    /* Botons de taules backoffice*/
+    --button-delete : #f44336;
+    --button-edit : #008CBA;
+    --button-details : #4CAF50;
+
+    /* Hovers en els botons */
+    --button-delete-hover : #8a1c24;
+    --button-edit-hover : #004080;
+    --button-details-hover : #388E3C;
+	
+	/* Botons generals */
+    --button-normal: var(--secundary-color);
+    --button-text: white;
+
+    /* Botons generals hovers */
+    --button-normal-hover: var(--tertiary-color);
+}

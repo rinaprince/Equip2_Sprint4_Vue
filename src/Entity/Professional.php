@@ -25,11 +25,6 @@ class Professional extends Customer
     #[ORM\Column(length: 255)]
     #[Assert\NotBlank]
     #[Assert\Length(max: 255)]
-    #[Assert\File(
-        maxSize: '10M',
-        mimeTypes: '{"application/pdf", "application/x-pdf"}',
-        maxSizeMessage: 'Per favor, puja un fitxer PDF vàlid.'
-    )]
     private ?string $LOPDdoc = null;
 
     #[ORM\Column(length: 255)]
@@ -41,11 +36,6 @@ class Professional extends Customer
     #[ORM\Column(length: 255)]
     #[Assert\NotBlank]
     #[Assert\Length(max: 255)]
-    #[Assert\File(
-        maxSize: '10M',
-        mimeTypes: '{"application/pdf", "application/x-pdf"}',
-        maxSizeMessage: 'Per favor, puja un fitxer PDF vàlid.'
-    )]
     private ?string $constitutionWriting = null;
 
     #[ORM\Column]
@@ -125,5 +115,10 @@ class Professional extends Customer
         $this->subscription = $subscription;
 
         return $this;
+    }
+
+    public function getType(): string
+    {
+        return "professional";
     }
 }

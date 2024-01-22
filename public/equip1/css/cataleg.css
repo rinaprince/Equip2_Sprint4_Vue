@@ -1,0 +1,125 @@
+/* Contenedor principal */
+.vehicle-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px; /* Espacio entre los elementos, ajusta según sea necesario */
+    justify-content: space-around; /* Centra los elementos horizontalmente */
+    padding: 20px; /* Añade espacio alrededor del contenedor */
+    background-color: #f5f5f5; /* Color de fondo */
+    border-radius: 15px;
+}
+
+/* Filas de vehículos */
+.vehicle-row {
+    display: flex;
+    flex-wrap: nowrap; /* Evita que las filas se envuelvan verticalmente */
+    gap: 20px; /* Espacio entre los vehículos en una fila */
+    margin: 20px;
+}
+
+/* Estilo del contenedor de cada vehículo */
+.vehicle {
+    width: calc(25% - 20px); /* El 25% asegura 4 columnas y resta el espacio entre elementos */
+    box-sizing: border-box; /* Incluye el padding y el borde en el ancho total */
+    margin-bottom: 20px; /* Espacio entre las filas */
+    border: 2px solid #dcdcdc; /* Color de borde más claro */
+    border-radius: 15px;
+    overflow: hidden; /* Evita que las imágenes sobresalgan del borde en caso de redondeo */
+    transition: transform 0.3s ease-in-out; /* Agregué una transición suave al hover */
+    background-color: #fff; /* Fondo blanco */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Sombra suave */
+}
+
+/* Contenedor de la imagen */
+.img-vehicle {
+    overflow: hidden;
+}
+
+/* Estilo de la imagen */
+.img-vehicle img {
+    width: 100%;
+    height: auto;
+    max-width: 100%;
+    border-radius: 15px 15px 0 0; /* 15px en las esquinas superiores */
+    transition: transform 0.3s ease-in-out; /* Transición suave al hover */
+}
+
+/* Estilo del nombre del vehículo */
+.name-vehicle {
+    text-align: center;
+    margin-top: 15px; /* Espacio entre el nombre y la imagen */
+    font-size: 16px; /* Tamaño de fuente ligeramente más grande */
+    color: #333; /* Color de texto más oscuro */
+    font-weight: bold; /* Negrita */
+}
+
+/* Estilo del contenedor de datos del vehículo */
+.data-vehicle {
+    display: flex;
+    justify-content: space-around;
+    padding: 15px; /* Añade espacio interno a los datos del vehículo */
+    background-color: #f9f9f9; /* Color de fondo más claro */
+    border-radius: 0 0 15px 15px; /* 15px en las esquinas inferiores */
+}
+
+/* Aplica estilos al hover */
+.vehicle:hover {
+    transform: scale(1.05); /* Hace que el vehículo se agrande ligeramente al pasar el ratón sobre él */
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2); /* Sombra más pronunciada al hover */
+}
+
+.vehicle:hover .img-vehicle img {
+    transform: scale(1.1); /* Hace que la imagen se agrande ligeramente al pasar el ratón sobre el vehículo */
+}
+
+/* Estilo del contenedor de datos del vehículo */
+.des-vehicle {
+    padding: 20px; /* Añade espacio interno a la descripción del vehículo */
+    background-color: #fff; /* Fondo blanco */
+    border-radius: 0 0 15px 15px; /* 15px en las esquinas inferiores */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Sombra suave */
+}
+
+/* Estilo del precio y los kilómetros del vehículo */
+.price-vehicle,
+.km-vehicle {
+    margin: 10px 0; /* Espacio entre el precio y los kilómetros */
+    text-align: center; /* Centra el texto */
+}
+
+/* Estilo del precio del vehículo */
+.price-vehicle {
+    font-size: 18px; /* Tamaño de fuente del precio */
+    color: #cea12a; /* Color naranja para resaltar el precio */
+    font-weight: bold; /* Negrita */
+}
+
+/* Estilo de los kilómetros del vehículo */
+.km-vehicle {
+    font-size: 16px; /* Tamaño de fuente de los kilómetros */
+    color: #555; /* Color de texto más oscuro */
+}
+
+/* Agrega un borde superior al separar la descripción del vehículo de la imagen */
+.des-vehicle::before {
+    content: '';
+    display: block;
+    width: 100%;
+    height: 1px;
+    background-color: #dcdcdc; /* Color del borde */
+    margin: 10px 0; /* Espacio entre el borde y el contenido */
+}
+
+
+.vehicle-add {
+    text-align: center;
+    padding: 20px 0px 20px 0px;
+}
+
+.vehicle-add-button {
+    background-color: #cea12a;
+    padding: 4px 10px 4px 10px;
+    border-radius: 5px;
+    text-decoration: none;
+    color: white;
+}

@@ -1,0 +1,61 @@
+{% extends 'base_3.html.twig' %}
+{% block title %} Garage {% endblock %}
+{% block stylesheets %}
+    <link rel="stylesheet" href="{{ asset('equip3/css/garage.css') }}">
+{% endblock %}
+{% block body %}
+    <h1>Garatge</h1>
+
+    <div class="garage-container">
+        <div>
+            {% set hasPendingOrder = false %}
+            {% for vehicle in vehicles %}
+                {% if vehicle.vehicleOrder != null and vehicle.vehicleOrder.state == 'Pendent' %}
+                    {% set hasPendingOrder = true %}
+                {% endif %}
+            {% endfor %}
+
+            {% if hasPendingOrder %}
+                <table>
+                    <thead>
+                    <tr>
+                        <th>Model</th>
+                        <th>Brand</th>
+                        <th>Plate</th>
+                        <th>Price</th>
+                        <th></th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    {% set totalPrice = 0 %}
+                    {% for vehicle in vehicles %}
+                        {% if vehicle.vehicleOrder != null and vehicle.vehicleOrder.state == 'Pendent' %}
+                            {% set totalPrice = totalPrice + vehicle.sellPrice %}
+                            <tr>
+                                <td>{{ vehicle.model.brand.name }}</td>
+                                <td>{{ vehicle.model.name }}</td>
+                                <td>{{ vehicle.plate }}</td>
+                                <td>{{ vehicle.sellPrice }}</td>
+                                <td><a class="remove-vehicle" href="/remove/{{ vehicle.id }}">Eliminar</a></td>
+                            </tr>
+                        {% endif %}
+                    {% endfor %}
+                    <tr>
+                        <td colspan="2"></td>
+                        <td>Total price:</td>
+                        <td>{{ totalPrice }}</td>
+                    </tr>
+                    </tbody>
+                </table>
+                <div class="buttons-container">
+                    <a class="cancel-order-button" href="/cancel">Cancel·lar</a>
+                    <a class="close-order-button" href="/close">Tancar</a>
+                </div>
+            {% else %}
+                <div class="no-order-message">
+                    <h3>No hi ha cap comanda pendent</h3>
+                </div>
+            {% endif %}
+        </div>
+    </div>
+{% endblock %}

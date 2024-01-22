@@ -10,15 +10,31 @@ use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
+use Knp\Component\Pager\PaginatorInterface;
 
-#[Route('/invoice')]
+#[Route('/invoices')]
 class InvoiceController extends AbstractController
 {
     #[Route('/', name: 'app_invoice_index', methods: ['GET'])]
-    public function index(InvoiceRepository $invoiceRepository): Response
+    public function index(InvoiceRepository $InvoiceRepository, PaginatorInterface $paginator, Request $request): Response
+
     {
+        $q = $request->query->get('q', '');
+
+        if(empty($q))
+            $invoiceQ = $InvoiceRepository->findAllQuery();
+        else{
+            $invoiceQ = $InvoiceRepository->findByText($q);
+        }
+        $paginator = $paginator->paginate(
+            $invoiceQ,
+            $request->query->getInt('page', 1),
+            5
+        );
         return $this->render('invoice/index.html.twig', [
-            'invoices' => $invoiceRepository->findAll(),
+            'invoices' => $paginator->getItems(),
+            'pagination' => $paginator,
+            'q' => $q
         ]);
     }
 
@@ -68,7 +84,7 @@ class InvoiceController extends AbstractController
         ]);
     }
 
-    #[Route('/{id}', name: 'app_invoice_delete', methods: ['POST'])]
+    #[Route('/{id}/delete', name: 'app_invoice_delete', methods: ['POST'])]
     public function delete(Request $request, Invoice $invoice, EntityManagerInterface $entityManager): Response
     {
         if ($this->isCsrfTokenValid('delete'.$invoice->getId(), $request->request->get('_token'))) {

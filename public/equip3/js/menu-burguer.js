@@ -1,5 +1,5 @@
-let burger = document.getElementById('burger');
-burger.addEventListener('click', function () {
+function burguer(){
+    let burger = document.getElementById('burger');
     burger.classList.toggle('active');
     let ocultMenu = document.querySelector('.ocultMenu');
     let menuAside = document.getElementById('menu-aside');
@@ -10,10 +10,4 @@ burger.addEventListener('click', function () {
     // Cierra el submenú cuando se activa el menú hamburguesa
     let submenuContents = document.querySelectorAll('.submenu-content');
     submenuContents.forEach(submenu => submenu.style.display = 'none');
-});
-
-let searcher = document.querySelector('.searcher>img');
-searcher.addEventListener('click', function () {
-    let div = document.querySelector('.searcher');
-    div.classList.toggle('searcherClicked');
-});
+}

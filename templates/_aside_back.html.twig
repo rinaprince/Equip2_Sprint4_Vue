@@ -2,46 +2,87 @@
     <nav id="main-menu">
         <ul>
             <li class="submenu">
-                <a href="#"><i class="fas fa-file-invoice"></i> Factures <i
-                            class="fas fa-chevron-right"></i></a>
+                <i class="fas fa-file-invoice"></i>
+                <a href="{{ path('app_invoice_index')}}"> Factures
+
+                </a>
+            </li>
+            <li class="submenu">
+                <a>
+                    <i class="fas fa-users"></i> Clients
+                    <i class="fas fa-chevron-right"></i>
+                </a>
                 <ul class="submenu-content">
-                    <li><a href="/invoice_list.php">Visualitzar Factures</a></li>
+                    <li>
+                        <a href="">
+                            Alta de Client
+                        </a>
+                    </li>
+                    <li>
+                        <a href="">
+                            Visualitzar Clients
+                        </a>
+                    </li>
                 </ul>
             </li>
             <li class="submenu">
-                <a href="#"><i class="fas fa-users"></i> Clients <i class="fas fa-chevron-right"></i></a>
+                <a>
+                    <i class="fas fa-user-tie"></i> Empleats
+                    <i class="fas fa-chevron-right"></i>
+                </a>
                 <ul class="submenu-content">
-                    <li><a href="#">Alta de Client</a></li>
-                    <li><a href="#">Visualitzar Clients</a></li>
+                    <li>
+                        <a href="">
+                            Alta Administratius
+                        </a>
+                    </li>
+                    <li>
+                        <a href="">
+                            Alta Administradors
+                        </a>
+                    </li>
                 </ul>
             </li>
             <li class="submenu">
-                <a href="#"><i class="fas fa-user-tie"></i> Empleats <i
-                            class="fas fa-chevron-right"></i></a>
+                <a>
+                    <i class="fas fa-truck"></i> Proveidors
+                    <i class="fas fa-chevron-right"></i>
+                </a>
                 <ul class="submenu-content">
-                    <li><a href="#">Alta d'Empleat</a></li>
-                    <li><a href="#">Visualitzar Empleats</a></li>
+                    <li>
+                        <a href="{{ path('app_provider_new')}}">
+                            Alta Proveidor
+                        </a>
+                    </li>
+                    <li>
+                        <a href="{{ path('app_provider_index')}}">
+                            Visualitzar Proveidors
+                        </a>
+                    </li>
                 </ul>
             </li>
             <li class="submenu">
-                <a href="#"><i class="fas fa-truck"></i> Proveïdors <i class="fas fa-chevron-right"></i></a>
-                <ul class="submenu-content">
-                    <li><a href="/provider_create.php">Alta Proveïdor</a></li>
-                    <li><a href="/provider_list.php">Visualitzar Proveïdors</a></li>
-                </ul>
+                <a href="{{ path('app_order_index')}}">
+                    <i class="fas fa-shopping-cart"></i> Comandes
+
+                </a>
             </li>
             <li class="submenu">
-                <a href="#"><i class="fas fa-shopping-cart"></i> Comandes <i
-                            class="fas fa-chevron-right"></i></a>
+                <a>
+                    <i class="fas fa-car"></i> Vehicles
+                    <i class="fas fa-chevron-right"></i>
+                </a>
                 <ul class="submenu-content">
-                    <li><a href="/order_list.php">Visualitzar Comandes</a></li>
-                </ul>
-            </li>
-            <li class="submenu">
-                <a href="#"><i class="fas fa-car"></i> Vehicles <i class="fas fa-chevron-right"></i></a>
-                <ul class="submenu-content">
-                    <li><a href="/vehicle_create.php">Alta Vehicle</a></li>
-                    <li><a href="/vehicle_list.php">Visualitzar Vehicles</a></li>
+                    <li>
+                        <a href="#">
+                            Alta Vehicle
+                        </a>
+                    </li>
+                    <li>
+                        <a href="{{ path('app_cataleg')}}">
+                            Visualitzar Vehicles
+                        </a>
+                    </li>
                 </ul>
             </li>
         </ul>

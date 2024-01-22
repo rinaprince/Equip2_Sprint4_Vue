@@ -6,6 +6,8 @@ use App\Entity\Order;
 use App\Form\OrderType;
 use App\Repository\OrderRepository;
 use Doctrine\ORM\EntityManagerInterface;
+use Doctrine\ORM\Tools\Pagination\Paginator;
+use Knp\Component\Pager\PaginatorInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
@@ -14,11 +16,28 @@ use Symfony\Component\Routing\Annotation\Route;
 #[Route('/orders')]
 class OrderController extends AbstractController
 {
+
+
     #[Route('/', name: 'app_order_index', methods: ['GET'])]
-    public function index(OrderRepository $orderRepository): Response
+    public function index(OrderRepository $orderRepository, PaginatorInterface $paginator, Request $request) : Response
     {
+        $q = $request->query->get('q', '');
+
+        if (empty($q))
+            $query = $orderRepository->findAllQuery();
+        else
+            $query = $orderRepository->findByTextQuery($q);
+
+        $pagination = $paginator->paginate(
+            $query, /* query NOT result */
+            $request->query->getInt('page', 1), /* page number */
+            10
+        );
+
         return $this->render('order/index.html.twig', [
-            'orders' => $orderRepository->findAll(),
+            'orders' => $pagination,
+            'q' => $q
+            //'orders' => $orderRepository->findAll(),
         ]);
     }
 

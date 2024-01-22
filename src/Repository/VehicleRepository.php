@@ -2,8 +2,11 @@
 
 namespace App\Repository;
 
+use App\DataFixtures\VehicleFixtures;
+use App\Entity\Model;
 use App\Entity\Vehicle;
 use Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository;
+use Doctrine\ORM\Query;
 use Doctrine\Persistence\ManagerRegistry;
 
 /**
@@ -20,7 +23,13 @@ class VehicleRepository extends ServiceEntityRepository
     {
         parent::__construct($registry, Vehicle::class);
     }
-
+    public function findAllQuery() : Query
+    {
+        return $this->createQueryBuilder('p')
+            ->orderBy('p.id', 'ASC')
+            ->getQuery()
+            ;
+    }
     /**
      * @return VehicleFixtures[] Returns an array of VehicleFixtures objects
      */
@@ -34,9 +43,10 @@ class VehicleRepository extends ServiceEntityRepository
             ->orWhere('v.buyPrice LIKE :val')
             ->setParameter('val', "%$value%")
             ->orderBy('v.id', 'ASC')
-            //->setMaxResults(5)
+            //->setMaxResults(10)
             ->getQuery()
-            ->getResult();
+            ->getResult()
+            ;
     }
 
 //    public function findOneBySomeField($value): ?VehicleFixtures

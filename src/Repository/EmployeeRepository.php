@@ -4,6 +4,7 @@ namespace App\Repository;
 
 use App\Entity\Employee;
 use Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository;
+use Doctrine\ORM\Query;
 use Doctrine\Persistence\ManagerRegistry;
 
 /**
@@ -21,28 +22,46 @@ class EmployeeRepository extends ServiceEntityRepository
         parent::__construct($registry, Employee::class);
     }
 
-//    /**
-//     * @return Employee[] Returns an array of Employee objects
-//     */
-//    public function findByExampleField($value): array
-//    {
-//        return $this->createQueryBuilder('e')
-//            ->andWhere('e.exampleField = :val')
-//            ->setParameter('val', $value)
-//            ->orderBy('e.id', 'ASC')
-//            ->setMaxResults(10)
-//            ->getQuery()
-//            ->getResult()
-//        ;
-//    }
+    /**
+     * @return Employee[] Returns an array of Employee objects
+     */
+    public function findByText($value): array
+    {
+        return $this->createQueryBuilder('e')
+            ->andWhere('e.name LIKE :val')
+            ->orWhere('e.lastname LIKE :val')
+            ->orWhere('e.type LIKE :val')
+            ->setParameter('val', "%$value%")
+            ->orderBy('e.name', 'DESC')
+            ->getQuery()
+            ->getResult()
+            ;
+    }
 
-//    public function findOneBySomeField($value): ?Employee
-//    {
-//        return $this->createQueryBuilder('e')
-//            ->andWhere('e.exampleField = :val')
-//            ->setParameter('val', $value)
-//            ->getQuery()
-//            ->getOneOrNullResult()
-//        ;
-//    }
+    /**
+     * @param string $value
+     * @return Query
+     */
+    public function findByTextQuery(string $value): Query
+    {
+        return $this->createQueryBuilder('e')
+            ->andWhere('e.content LIKE :val')
+            ->setParameter('val', $value)
+            ->orderBy('e.name', 'DESC')
+            ->getQuery()
+        ;
+    }
+
+    /**
+     * @param string $value
+     * @return Query
+     */
+
+    public function findAllQuery(): Query
+    {
+        return $this->createQueryBuilder('e')
+            ->orderBy('e.name', 'DESC')
+            ->getQuery()
+            ;
+    }
 }

@@ -8,13 +8,14 @@ use App\Entity\Vehicle;
 use App\Repository\ProviderRepository;
 use DateTime;
 use Doctrine\Bundle\FixturesBundle\Fixture;
+use Doctrine\Common\DataFixtures\DependentFixtureInterface;
 use Doctrine\Persistence\ObjectManager;
 use Faker\Factory;
 use Faker\Generator;
 use Faker\Provider\Fakecar;
 
 
-class VehicleFixtures extends Fixture
+class VehicleFixtures extends Fixture implements DependentFixtureInterface
 {
     private Generator $faker;
 
@@ -92,7 +93,9 @@ class VehicleFixtures extends Fixture
     public function getDependencies(): array
     {
         return
-            [ProviderFixtures::class];
+            [ProviderFixtures::class,
+                /*OrderFixtures::class*/];
     }
+
 
 }

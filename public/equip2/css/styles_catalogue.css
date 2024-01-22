@@ -1,0 +1,69 @@
+/* Estilos específicos para la vista del catálogo */
+#catalogue-section .section-catalog {
+    background-color: #ffffff;
+    padding: 20px;
+}
+
+#catalogue-section .vehicle-card {
+    display: flex;
+    border: 1px solid #e7e7e9ff;
+    border-radius: 10px;
+    padding: 15px;
+    margin: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+#catalogue-section .vehicle-card:hover {
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
+}
+
+#catalogue-section .vehicle-card img {
+    width: 33%;
+    height: auto;
+    border-radius: 8px;
+    margin-right: 15px;
+}
+
+#catalogue-section .vehicle-card h3 {
+    font-size: 1.8em;
+    margin-bottom: 10px;
+    color: #333;
+}
+
+#catalogue-section .vehicle-card p {
+    margin-bottom: 8px;
+    color: #666;
+}
+
+#catalogue-section .vehicle-card .button-container {
+    display: flex;
+    gap: 10px;
+}
+
+#catalogue-section .vehicle-card button {
+    background-color: #aa8e31ff;
+    color: #ffffff;
+    border: none;
+    padding: 10px 15px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+#catalogue-section .vehicle-card button:hover {
+    background-color: #8c7424ff;
+}
+
+#catalogue-section .button-container .add-to-order-button {
+    background-color: #0184de;
+    color: #ffffff;
+    border: none;
+    padding: 10px 15px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+#catalogue-section .button-container .add-to-order-button:hover {
+    background-color: #00a0ff;
+}

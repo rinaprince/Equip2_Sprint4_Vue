@@ -1,0 +1,20 @@
+@startuml
+left to right direction
+actor "Customer" as c
+actor "Administrative" as adm
+rectangle Orders {
+usecase "Create Order" as UC1
+usecase "Pay for Order" as UC2
+usecase "Cancel Order" as UC3
+usecase "Add a Vehicle to Order" as UC4
+usecase "Edit Order" as UC5
+usecase "Check Order existence" as UC6
+}
+c --> UC2
+c --> UC3
+c --> UC4
+adm --> UC3
+adm --> UC5
+UC4 <|--"extends" UC1
+UC4 <|--"includes" UC6
+@enduml

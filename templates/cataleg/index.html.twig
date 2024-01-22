@@ -1,0 +1,46 @@
+{% extends 'base_3.html.twig' %}
+{% block title %} Cataleg {% endblock %}
+
+{% block stylesheets %}
+    {{ parent() }}
+    <link rel="stylesheet" href="{{ asset('equip3/css/cataleg.css') }}">
+{% endblock %}
+{% block body %}
+    <h1>Cataleg</h1>
+    <form method="GET" class="col-12 col-lg-auto mb-3 mb-lg-0 me-lg-3 mb-lg-1" role="search">
+        <input name="q" type="search" class="form-control form-control-light text-dark"
+               placeholder="Buscar..." aria-label="Search">
+    </form>
+
+    {%  if q %}
+        <h2>Mostrant el resultat de la cerca: {{ q }}</h2>
+    {% endif %}
+    <div class="vehicle-container">
+        {% for vehicle in vehicles %}
+            <div class="vehicle">
+                <div class="img-vehicle">
+                    <img src="{{ asset("/equip3/img/vehicles/" ~ vehicle.images[0].filename) }}"
+                         alt="image {{ vehicle.model.name }}">
+                </div>
+                <div class="des-vehicle">
+                    <p class="name-vehicle">{{ vehicle.model.brand.name }} {{ vehicle.model.name }} </p>
+                    <div class="data-vehicle">
+                        <div><p class="price-vehicle">{{ vehicle.sellPrice }}€</p></div>
+                        <div><p class="km-vehicle"> {{ vehicle.kilometers }}km</p></div>
+                    </div>
+                    <div class="vehicle-add">
+                        <a class="vehicle-add-button" href="/add/{{ vehicle.id }}">Add</a>
+                    </div>
+                </div>
+            </div>
+        {% else %}
+            <h2>No s'ha trobat res</h2>
+
+        {% endfor %}
+    </div>
+    <div class="navigation d-flex justify-content-center mt-lg-3">
+
+        {{ knp_pagination_render(pagination) }}
+    </div>
+
+{% endblock %}

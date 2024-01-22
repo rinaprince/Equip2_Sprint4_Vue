@@ -1,0 +1,23 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Iniciar sessió{% endblock %}
+
+{% block body %}
+    <h2>Iniciar sessió</h2>
+
+    {% if error %}
+        <div>{{ error.messageKey|trans(error.messageData, 'security') }}</div>
+    {% endif %}
+
+    <form method="post" action="{{ path('app_login') }}">
+        <input type="hidden" name="_csrf_token" value="{{ csrf_token('authenticate') }}">
+
+        <label for="username">Nom d'usuari:</label>
+        <input type="text" id="username" name="_username" value="{{ last_username }}" required autofocus>
+
+        <label for="password">Contrasenya:</label>
+        <input type="password" id="password" name="_password" required>
+
+        <button type="submit">Iniciar sessió</button>
+    </form>
+{% endblock %}

@@ -1,0 +1,180 @@
+.section-order-preview {
+    background-color: #f9f9f9;
+    padding: 40px;
+}
+
+#garage-section .title {
+    margin: 22px 30px 22px 0;
+}
+
+#garage-section .vehicle-card {
+    display: flex;
+    border: 1px solid #e7e7e9ff;
+    border-radius: 10px;
+    padding: 15px;
+    margin: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.back-button button {
+    background-color: #333;
+    margin-bottom: 15px;
+    font-size: 1.2em;
+    padding: 15px 20px;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.1s ease;
+}
+
+#garage-section .back-button button:hover {
+    background-color: #555;
+}
+
+#garage-section .vehicle-info {
+    display: flex;
+    flex-direction: column;
+    padding: 15px;
+}
+
+#garage-section .vehicle-info h3 {
+    font-size: 1.8em;
+    margin-bottom: 10px;
+    color: #333;
+}
+
+#garage-section .vehicle-info .price-garage {
+    font-size: 1.4em;
+    margin-bottom: 10px;
+    color: #000000;
+}
+
+#garage-section .vehicle-info .price-garage b {
+    font-size: 1.4em;
+    margin-bottom: 10px;
+    color: #ff3333;
+}
+
+#garage-section .vehicle-info p {
+    margin-bottom: 8px;
+    color: #666;
+}
+
+#garage-section .vehicle-card img {
+    width: 40%;
+    height: auto;
+    border-radius: 8px;
+    margin-right: 15px;
+}
+
+#garage-section .vehicle-info .vehicle-buttons {
+    display: flex;
+    gap: 10px;
+}
+
+#garage-section .vehicle-info .vehicle-buttons button {
+    background-color: #b19337;
+    color: #ffffff;
+    border: none;
+    padding: 10px 15px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.1s ease;
+}
+
+#garage-section .vehicle-info .vehicle-buttons button:hover {
+    background-color: #d7b444;
+}
+
+#garage-section .vehicle-info .vehicle-buttons button.delete-button {
+    background-color: #ff3333;
+    color: #ffffff;
+    padding: 10px 15px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.1s ease;
+}
+
+#garage-section .vehicle-info .vehicle-buttons button.delete-button:hover {
+    background-color: #cc0000;
+}
+
+#garage-section .order-total {
+    margin-top: 20px;
+    border-top: 2px solid #ddd;
+    padding-top: 20px;
+}
+
+#garage-section .order-total p {
+    font-size: 1.5em;
+    color: #333;
+}
+
+#garage-section .order-actions {
+    margin-top: 20px;
+    display: flex;
+    justify-content: flex-end;
+}
+
+#garage-section .order-actions form {
+    margin-right: 20px;
+}
+
+#garage-section .order-actions button {
+    font-size: 1.4em;
+    background-color: #333;
+    padding: 10px 15px;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.1s ease;
+}
+
+#garage-section .order-actions button:hover {
+    background-color: #555;
+}
+
+#garage-section .order-actions .delete-button {
+    font-size: 1.4em;
+    background-color: #ff3333;
+    padding: 10px 15px;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.1s ease;
+}
+
+#garage-section .order-actions .delete-button:hover {
+    background-color: #cc0000;
+}
+
+/* Estilos generales */
+@media only screen and (max-width: 992px) {
+    #garage-section .vehicle-card {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+    }
+
+    #garage-section .vehicle-card img {
+        width: 100%;
+        margin-bottom: 15px;
+    }
+
+    #garage-section .vehicle-info {
+        padding: 15px;
+    }
+
+    #garage-section .order-actions {
+        justify-content: center;
+        margin-top: 15px;
+    }
+
+    #garage-section .order-actions form {
+        margin-right: 0;
+    }
+}
+

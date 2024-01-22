@@ -1,0 +1,7 @@
+@startmindmap
+* Admin (ROLE_ADMIN)
+** Administrative (ROLE_ADMINISTRATIVE)
+** Customer (ROLE_CUSTOMER)
+*** Private (ROLE_PRIVATE)
+*** Professional (ROLE_PROFESSIONAL)
+@endmindmap

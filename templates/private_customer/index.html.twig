@@ -8,7 +8,6 @@
     <table class="table">
         <thead>
             <tr>
-                <th>Id</th>
                 <th>Name</th>
                 <th>Lastname</th>
                 <th>Address</th>
@@ -21,7 +20,6 @@
         <tbody>
         {% for private_customer in private_customers %}
             <tr>
-                <td>{{ private_customer.id }}</td>
                 <td>{{ private_customer.name }}</td>
                 <td>{{ private_customer.lastname }}</td>
                 <td>{{ private_customer.address }}</td>

@@ -1,9 +1,9 @@
 <template>
-    <div>Hola {{ name }}!</div>
+  <div>Hello {{ name }}</div>
 </template>
 
 <script setup>
-    defineProps({
-        name: String
-    });
+defineProps({
+  name: String
+});
 </script>

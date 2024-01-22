@@ -36,7 +36,7 @@ class Vehicle1Type extends AbstractType
             ])
             ->add('provider', EntityType::class, [
                 'class' => Provider::class,
-                'choice_label' => 'bussinessname',
+                'choice_label' => 'businessname',
 
             ])
             ->add('vehicleOrder', EntityType::class, [

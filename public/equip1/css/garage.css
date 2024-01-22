@@ -1,0 +1,41 @@
+.garage-container {
+    display: flex;
+    justify-content: center;
+    padding: 40px;
+}
+
+.buttons-container {
+    margin: 10px 0px 0px 0px;
+}
+
+.close-order-button {
+    background-color: #cea12a;
+    padding: 4px 10px 4px 10px;
+    border-radius: 5px;
+    text-decoration: none;
+    color: white;
+}
+
+.cancel-order-button {
+    background-color: #2a6cce;
+    padding: 4px 10px 4px 10px;
+    border-radius: 5px;
+    text-decoration: none;
+    color: white;
+}
+
+.remove-vehicle {
+    background-color: #bf2e2e;
+    padding: 4px 10px 4px 10px;
+    border-radius: 5px;
+    text-decoration: none;
+    color: white;
+}
+
+td {
+    padding: 5px;
+}
+
+.no-order-message {
+
+}

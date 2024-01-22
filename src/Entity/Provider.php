@@ -7,70 +7,124 @@ use App\Validator\Dni;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\HttpFoundation\File\File;
 use Symfony\Component\Validator\Constraints as Assert;
+use Vich\UploaderBundle\Mapping\Annotation as Vich;
 
 #[ORM\Entity(repositoryClass: ProviderRepository::class)]
+#[Vich\Uploadable]
 class Provider
 {
     #[ORM\Id]
     #[ORM\GeneratedValue]
     #[ORM\Column]
-    #[Assert\NotBlank]
     private ?int $id = null;
 
     #[ORM\Column(length: 255)]
     #[Assert\Type(type: 'string')]
-    #[Assert\NotBlank]
+
     private ?string $email = null;
 
     #[ORM\Column(length: 20)]
     #[Assert\Length(max: 9)]
-    #[Assert\Type(type: 'integer')]
-    #[Assert\NotBlank]
+
     private ?string $phone = null;
 
     #[ORM\Column(length: 20)]
     #[Assert\Length(max: 9)]
-    #[Assert\NotBlank]
     #[Dni]
     private ?string $dni = null;
 
     #[ORM\Column(length: 20)]
     #[Assert\Length(max: 9)]
-    #[Assert\NotBlank]
     private ?string $cif = null;
 
     #[ORM\Column(length: 255)]
-    #[Assert\NotBlank]
+
     private ?string $address = null;
 
+    #[Vich\UploadableField(mapping: 'providers_documents', fileNameProperty: 'bankTitle')]
+    private ?File $bankTitleFile = null;
+
     #[ORM\Column(length: 255)]
-    #[Assert\NotBlank]
     private ?string $bankTitle = null;
 
     #[ORM\Column(length: 20)]
     #[Assert\Length(max: 9)]
-    #[Assert\NotBlank]
     private ?string $managerNif = null;
 
+    #[Vich\UploadableField(mapping: 'providers_documents', fileNameProperty: 'LOPDdoc')]
+    private ?File $LOPDdocFile = null;
     #[ORM\Column(length: 255)]
-    #[Assert\NotBlank]
     private ?string $LOPDdoc = null;
 
+    #[Vich\UploadableField(mapping: 'providers_documents', fileNameProperty: 'constitutionArticle')]
+    private ?File $constitutionArticleFile = null;
+
     #[ORM\Column(length: 255)]
-    #[Assert\NotBlank]
     private ?string $constitutionArticle = null;
+
+    #[ORM\Column(nullable: true)]
+    private ?\DateTimeImmutable $updatedAt = null;
 
     #[ORM\OneToMany(mappedBy: 'provider', targetEntity: Vehicle::class, orphanRemoval: true)]
     private Collection $vehicles;
 
     #[ORM\Column(length: 255)]
-    #[Assert\NotBlank]
-    private ?string $bussinessName = null;
+
+    private ?string $businessName = null;
 
     public function __construct()
     {
         $this->vehicles = new ArrayCollection();
+    }
+
+    public function setBankTitleFile(?File $file = null): void
+    {
+        $this->bankTitleFile = $file;
+
+        if (null !== $file) {
+            // It is required that at least one field changes if you are using doctrine
+            // otherwise the event listeners won't be called and the file is lost
+            $this->updatedAt = new \DateTimeImmutable();
+        }
+    }
+
+    public function getBankTitleFile(): ?File
+    {
+        return $this->bankTitleFile;
+    }
+
+    public function setLOPDdocFile(?File $file = null): void
+    {
+        $this->LOPDdocFile = $file;
+
+        if (null !== $file) {
+            // It is required that at least one field changes if you are using doctrine
+            // otherwise the event listeners won't be called and the file is lost
+            $this->updatedAt = new \DateTimeImmutable();
+        }
+    }
+
+    public function getLOPDdocFile(): ?File
+    {
+        return $this->LOPDdocFile;
+    }
+
+    public function setConstitutionArticleFile(?File $file = null): void
+    {
+        $this->constitutionArticleFile = $file;
+
+        if (null !== $file) {
+            // It is required that at least one field changes if you are using doctrine
+            // otherwise the event listeners won't be called and the file is lost
+            $this->updatedAt = new \DateTimeImmutable();
+        }
+    }
+
+    public function getConstitutionArticleFile(): ?File
+    {
+        return $this->constitutionArticleFile;
     }
 
     public function getId(): ?int
@@ -143,7 +197,7 @@ class Provider
         return $this->bankTitle;
     }
 
-    public function setBankTitle(string $bankTitle): static
+    public function setBankTitle(?string $bankTitle): static
     {
         $this->bankTitle = $bankTitle;
 
@@ -167,7 +221,7 @@ class Provider
         return $this->LOPDdoc;
     }
 
-    public function setLOPDdoc(string $LOPDdoc): static
+    public function setLOPDdoc(?string $LOPDdoc): static
     {
         $this->LOPDdoc = $LOPDdoc;
 
@@ -179,7 +233,7 @@ class Provider
         return $this->constitutionArticle;
     }
 
-    public function setConstitutionArticle(string $constitutionArticle): static
+    public function setConstitutionArticle(?string $constitutionArticle): static
     {
         $this->constitutionArticle = $constitutionArticle;
 
@@ -216,14 +270,14 @@ class Provider
         return $this;
     }
 
-    public function getBussinessName(): ?string
+    public function getBusinessName(): ?string
     {
-        return $this->bussinessName;
+        return $this->businessName;
     }
 
-    public function setBussinessName(string $bussinessName): static
+    public function setBusinessName(string $businessName): static
     {
-        $this->bussinessName = $bussinessName;
+        $this->businessName = $businessName;
 
         return $this;
     }

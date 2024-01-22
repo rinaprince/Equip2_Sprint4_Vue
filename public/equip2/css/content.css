@@ -1,0 +1,160 @@
+/* ----------------------------------------------------- SECTION ----------------------------------------------------------- */
+
+#order-info {
+    display: flex;
+    width: 100%;
+}
+
+.info-column {
+    padding: 0 5%;
+}
+
+.info-column>div:first-child {
+    margin-bottom: 20px;
+}
+
+p {
+    padding: 3px 0;
+}
+
+aside {
+    padding: 50px 5px;
+}
+
+aside p {
+    text-align: justify;
+}
+
+aside .checkout-info {
+    display: flex;
+    justify-content: space-between;
+}
+
+aside .checkout-info:last-child {
+    font-size: 21px;
+    font-weight: 900;
+    color: #aa8e31;
+}
+
+aside #pagar {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    margin: 0.67em 0;
+    
+}
+
+aside #checkout-info-container {
+    margin-bottom: 30px;
+}
+
+aside #pagar button{
+    margin: 0.67em 0;
+}
+
+#tarjeta-pago {
+    margin-top: 4px;
+    margin-right: 4px;
+    width: 40px;
+    border: 1px solid rgba(0, 0, 0, 0.4);
+    border-radius: 3px;
+
+}
+
+#pagamiento {
+    display: flex;
+    align-items: center;
+}
+
+h3>a {
+    font-size: 0.7rem;
+    text-decoration: none;
+    color: #aa8e31;
+}
+
+aside p>a {
+    font-size: 0.7rem;
+    text-decoration: none;
+    color: #aa8e31;
+}
+
+h1 {
+    margin: 0.67em 30px;
+}
+
+h3 {
+    color: #181d33ff;
+    margin-bottom: 5px;
+}
+
+section.col-10 form {
+    display: flex;
+    flex-direction: column;
+    max-width: 400px;
+}
+
+section.col-10 label {
+    font-size: 16px;
+    color: #181d33;
+}
+
+section.col-10 input,
+section.col-10 select {
+    padding: 10px;
+    margin-top: 0.5rem;
+    border: 1px solid #e7d381;
+    border-radius: 5px;
+    font-size: 14px;
+    outline: none;
+}
+
+section button {
+    background-color: #e7d381ff;
+    color: white;
+    padding: 10px 15px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-family: 'Ubuntu', sans-serif;
+    font-size: 16px;
+}
+
+section.col-9 button{
+    margin-top: 1rem;
+}
+
+section button:hover {
+    background-color: #aa8e31ff;
+    transition: 1s;
+}
+
+#info-envio p{
+line-height: 1.5em;
+}
+
+#first-part{
+    padding: 1.5em 1em;
+}
+
+#second-part{
+    background-color: #dddddf;
+    padding: 1.5em 1em;
+    border: 1px solid rgba(0,0,0, 0.1);
+    border-radius: 5px;
+}
+
+@media (max-width: 770px) {
+    
+    #order-info {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        width: 100%;
+    }
+
+    .info-column {
+        padding: 5% 5%;
+    }
+
+}

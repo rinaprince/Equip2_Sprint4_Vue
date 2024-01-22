@@ -1,0 +1,235 @@
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Ubuntu:wght@300&display=swap');
+
+body {
+    display: flex;
+    flex-direction: column;
+    background-color: #e7e7e9ff;
+    font-size: 1rem;
+    margin: 0;
+    font-family: 'Ubuntu', sans-serif;
+    min-height: 100vh;
+}
+
+main {
+    flex: 1;
+}
+
+header {
+    background-color: #181d33;
+    color: #e7d381;
+    padding: 1rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+nav ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+nav ul li {
+    display: inline;
+    margin-right: 20px;
+}
+
+nav ul li a {
+    text-decoration: none;
+    color: #e7d381;
+    font-size: 1rem;
+}
+
+nav ul li a:hover {
+    color: #aa8e31;
+}
+
+main {
+    margin: 2rem;
+}
+
+section {
+    margin-top: 2rem;
+}
+
+section h2 {
+    color: #181d33;
+}
+
+section table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 1rem;
+}
+
+section th, section td {
+    border: 1px solid #e7d381;
+    padding: 8px;
+}
+
+section th {
+    background-color: #aa8e31;
+    color: #181d33;
+}
+
+section td {
+    text-align: center;
+}
+
+section td a {
+    text-decoration: none;
+    color: #181d33;
+}
+
+footer {
+    background-color: #181d33;
+    bottom: 0;
+    right: 0;
+    left: 0;
+    width: 100%;
+    padding: 1.25rem;
+}
+
+.logo-footer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 0.9375rem;
+}
+
+.logo-footer > p {
+    margin: 10px;
+    color: #e7d381;
+    font-size: 22px;
+}
+
+.img-logo-footer {
+    width: 3.125rem;
+}
+
+.nav-footer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+hr {
+    margin: 0.9375rem 1.875rem;
+    border-color: #aa8e31;
+}
+
+.nav-footer > ul {
+    display: flex;
+    justify-content: flex-start;
+    /*align-items: center;*/
+    gap: 1.25rem;
+}
+
+.nav-footer > ul > li {
+    justify-content: center;
+    align-items: center;
+    list-style: none;
+}
+
+.nav-footer > ul > li > a {
+    color: #e7d381;
+    font-size: 0.75rem;
+    font-family: 'Playfair Display', serif;
+}
+
+.nav-footer > ul > li > p {
+    color: #e7d381;
+}
+
+.create-login-button {
+    font-family: 'Ubuntu', sans-serif;
+    background-color: #aa8e31;
+    color: white;
+    padding: 10px 20px;
+    font-size: 16px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.create-login-button:hover {
+    background-color: #e7d381;
+}
+
+
+.operation-link {
+    text-decoration: none;
+    padding: 3px 10px;
+    margin: 2px;
+    border-radius: 4px;
+    font-family: 'Ubuntu', sans-serif;
+}
+
+.edit-link {
+    background-color: #4285f4;
+    color: white;
+}
+
+.delete-link {
+    background-color: #dc3545;
+    color: white;
+}
+
+.operation-link:hover {
+    opacity: 0.8;
+}
+
+section {
+    margin-top: 2rem;
+}
+
+section h2 {
+    color: #181d33;
+}
+
+section form {
+    display: flex;
+    flex-direction: column;
+    max-width: 400px;
+    margin-top: 1rem;
+}
+
+section label {
+    margin-top: 0.5rem;
+    font-size: 16px;
+    color: #181d33;
+}
+
+section input,
+section select {
+    padding: 10px;
+    margin-top: 0.5rem;
+    border: 1px solid #e7d381;
+    border-radius: 5px;
+    font-size: 14px;
+}
+
+section button {
+    background-color: #aa8e31;
+    color: white;
+    padding: 10px 15px;
+    margin-top: 1rem;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-family: 'Ubuntu', sans-serif;
+    font-size: 16px;
+}
+
+section button:hover {
+    background-color: #e7d381;
+}
+
+section form:nth-child(2) button {
+    background-color: #4285f4;
+}
+
+section form:nth-child(2) button:hover {
+    background-color: #75a6f9;
+}

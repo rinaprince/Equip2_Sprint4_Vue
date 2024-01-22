@@ -1,0 +1,438 @@
+@font-face {
+    font-family: 'DM Sans';
+    src: url('../fonts/DM_Sans/DMSans-VariableFont_opsz\,wght.ttf');
+}
+
+@font-face {
+    font-family: 'Montserrat';
+    src: url('../fonts/Montserrat/Montserrat-VariableFont_wght.ttf');
+}
+
+@font-face {
+    font-family: 'PlayFair';
+    src: url('../fonts/Playfair_Display/PlayfairDisplay-VariableFont_wght.ttf');
+}
+
+
+h1, h2, h3 {
+    font-family: 'Playfair';
+}
+
+.searcherClicked input {
+    display: block;
+    background-color: aliceblue;
+    justify-content: right;
+    width: 100%;
+    transition: 1s;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 1rem;
+}
+
+section.col-10 th, section.col-10 td {
+    border: 1px solid #e7d381;
+    padding: 8px;
+}
+
+section.col-10 th {
+    background-color: #aa8e31;
+    color: #181d33;
+}
+
+section.col-10 td {
+    text-align: center;
+}
+
+section.col-10 td a {
+    text-decoration: none;
+    color: #181d33;
+}
+
+section.class-10 {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    justify-content: center;
+}
+
+#div-table {
+    width: 100%;
+    margin: 1rem auto; 
+}
+
+main section.col-10 #div-table{
+    padding-bottom: 30px;
+}
+
+.table-searcher {
+    display: flex;
+    align-items: center;
+    margin: 0 auto;
+    background-color: white;
+    border: 1px solid #ccc;
+    width: 300px;
+    padding: 0;
+    border-radius: 40px 40px 40px 40px;
+}
+
+.table-searcher-input {
+    flex: 1;
+    border: none;
+    outline: none;
+    font-size: 16px;
+    margin-left: 20px;
+    padding: 0px;
+}
+
+.table-searcher-button {
+    color: black;
+    background-color: #aa8e31ff;
+    cursor: pointer;
+    font-family: 'DM Sans', sans-serif;
+    border: 1px solid #aa8e31ff;
+    border-radius: 0 40px 40px 0;
+    height: 40px;
+    width: 64px;
+}
+
+section.col-10 {
+    margin: 0 auto;
+    text-align: center;
+}
+
+
+
+/** Estils unificats de les taules (Editat per Javier Ramos)*/
+#div-table {
+    width: 100%;
+    margin-top: 1rem;
+    max-width: 1200px;
+}
+
+table, th, td{
+    padding: 0;
+    border: none;
+}
+.backoffice-table td{
+    padding: .5em .3em;
+}
+
+.operations-bttn{
+    padding: .5em;
+    border-radius: .4em;
+    border: none;
+}
+
+.details{
+    background-color: #4caf50;
+}
+
+.details:hover{
+    background-color: #388e3c;
+}
+
+.edit{
+    background-color: #008cba;
+}
+
+.edit:hover{
+    background-color: #004080;
+}
+
+.delete{
+    background-color: #f44336;
+}
+
+.delete:hover{
+    background-color: #8a1c24;
+}
+
+.backoffice-table{
+    border-collapse: collapse;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    text-align: center;
+}
+
+.backoffice-table>thead{
+    background-color: #aa8e31;
+}
+
+.backoffice-table>tbody{
+    background-color: #e7e7e9;
+}
+
+.backoffice-table tr{
+    border: none;
+}
+
+.backoffice-table tbody tr:hover {
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.backoffice-table>thead th{
+    padding: .5em 1em;
+}
+
+.backoffice-table>tr:nth-child(even){
+    background-color: rgba(212, 197, 147, 0.4);
+}
+
+#div-table {
+    width: 100%;
+    margin: 1rem auto;
+}
+
+main .contingut #div-table{
+    padding-bottom: 30px;
+}
+
+button {
+    background-color: #e7d381ff;
+    color: #181d33ff;
+    border: none;
+    cursor: pointer;
+    font-family: 'DM Sans', sans-serif;
+    border-radius: 5px;
+    padding: .5em;
+}
+
+button:hover {
+    background-color: #aa8e31ff;
+    transition: 1s;
+}
+
+.contingut .delete-button {
+    background-color: #f44336;
+    color: white;
+}
+
+.contingut .edit-button {
+    background-color: #008CBA;
+    color: white;
+}
+
+.contingut .details-button {
+    background-color: #4CAF50;
+    color: white;
+}
+
+.contingut .delete-button:hover {
+    background-color: #8a1c24;
+}
+
+.contingut .edit-button:hover {
+    background-color: #004080;
+}
+
+.contingut .details-button:hover {
+    background-color: #388E3C;
+}
+
+tr:nth-child(even){
+    background-color: rgba(93,93,93, 0.1);
+}
+
+tbody>tr:hover {
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.table-searcher-button {
+    color: black;
+    background-color: #aa8e31ff;
+    cursor: pointer;
+    font-family: 'DM Sans', sans-serif;
+    border: 1px solid #aa8e31ff;
+    border-radius: 0 40px 40px 0;
+    height: 40px;
+    width: 64px;
+}
+
+i{
+    color: white;
+}
+
+.multiple-selector{
+    display: none;
+}
+
+#close-selection{
+    color: black;
+    display: none;
+}
+
+input[name="multiple-selector"]{
+    appearance: none;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+
+    border-radius: 5px;
+    outline: none;
+
+    background-color: white;
+    border: 1px solid rgba(0, 0, 0, 0.3);
+    padding: .5em;
+}
+
+input[name="multiple-selector"]:checked{
+    border: none;
+    background-image:url("/assets/ico/cheque.png");
+    background-repeat: no-repeat;
+    background-position-x: 50%;
+    background-position-y: 50%;
+    background-color: #e7d381;
+}
+
+.head-actions{
+    display: flex;
+    justify-content: space-around;
+}
+
+.head-actions button {
+    padding: .5em;
+}
+
+#bttn-selection{
+    background-color: #e7d381;
+}
+
+.modal{
+    position: fixed;
+    background-color: rgba(0,0,0,0.8);
+    height: 100%;
+}
+
+.modal-content{
+    position: absolute;
+    padding:1em;
+    border-radius: .8em;
+}
+
+/**--------------------------Formulari----------------------*/
+.form-group{
+    display: flex;
+    flex-direction: column;
+    width: 75%;
+    margin: .4em 0;
+}
+
+#form-control{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 1.5em 0;
+}
+
+.form-buttons{
+    padding: .5em 1em;
+    border: none;
+    border-radius: 1em;
+    transition: .4s;
+}
+
+#send{
+    border: 1px #aa8e31 solid;
+    background-color: #aa8e31;
+    color: white;
+}
+
+#delete{
+    border: 1px red solid;
+    background-color: white;
+    color: red;
+
+}
+
+#send:hover{
+    border: 1px #aa8e31 solid;
+    background-color: white;
+    color: #aa8e31;
+
+}
+
+#delete:hover{
+    background-color: red;
+    color: white;
+}
+
+#novaSolicitud{
+    text-decoration: none;
+    color: black;
+    padding: .5em;
+    background-color: #e7d381;
+    border-radius: .5em;
+}
+
+@media only screen and (max-width: 1700px){
+    .detail{
+        display: none;
+    }
+}
+
+@media only screen and (max-width: 767px) {
+
+    #invoices-table thead{
+        border: none;
+    }
+
+    #invoices-table th{
+        display: none;
+    }
+
+    #invoices-table tbody tr{
+        display: flex;
+        flex-direction: column;
+        margin-top: 30px;
+        background-color: rgba(212, 197, 147, 0.4);
+        border-radius: 7px;
+        padding: 10px;
+    }
+
+    #invoices-table td{
+        display: flex;
+        align-items: start;
+    }
+
+    #invoices-table td:last-child{
+        display: flex;
+        padding-top: 15px;
+        align-items: center;
+        justify-content: center;
+        border: none;
+    }
+
+    #invoices-table td[data-title]{
+        display: flex;
+        border: none;
+    }
+
+    #invoices-table td[data-title]:before{
+        content: attr( data-title );
+        text-align: left;
+        width: 50%;
+        padding-right: 10px;
+    }
+
+    .searcher{
+        width: 100%;
+    }
+
+    .head-actions{
+        flex-wrap: wrap;
+    }
+
+    .head-actions>div{
+        margin: .5em .2em;
+    }
+
+}
+
+
+
+
+
+

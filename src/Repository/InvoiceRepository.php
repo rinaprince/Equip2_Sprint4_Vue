@@ -4,6 +4,7 @@ namespace App\Repository;
 
 use App\Entity\Invoice;
 use Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository;
+use Doctrine\ORM\Query;
 use Doctrine\Persistence\ManagerRegistry;
 
 /**
@@ -21,20 +22,26 @@ class InvoiceRepository extends ServiceEntityRepository
         parent::__construct($registry, Invoice::class);
     }
 
-//    /**
-//     * @return Invoice[] Returns an array of Invoice objects
-//     */
-//    public function findByExampleField($value): array
-//    {
-//        return $this->createQueryBuilder('i')
-//            ->andWhere('i.exampleField = :val')
-//            ->setParameter('val', $value)
-//            ->orderBy('i.id', 'ASC')
-//            ->setMaxResults(10)
-//            ->getQuery()
-//            ->getResult()
-//        ;
-//    }
+    public function findAllQuery() : Query
+    {
+        return $this->createQueryBuilder('i')
+            ->orderBy('i.id', 'ASC')
+            ->getQuery()
+            ;
+    }
+    /**
+     * @return Invoice[] Returns an array of Invoice objects
+     */
+    public function findByText($value): array
+    {
+        return $this->createQueryBuilder('i')
+            ->andWhere('i.number LIKE :val')
+            ->setParameter('val', "%$value%")
+            ->orderBy('i.id', 'ASC')
+            ->setMaxResults(10)
+            ->getQuery()
+            ->getResult();
+    }
 
 //    public function findOneBySomeField($value): ?Invoice
 //    {

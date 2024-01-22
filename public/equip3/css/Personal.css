@@ -1,0 +1,258 @@
+@font-face {
+    font-family: 'DM Sans';
+    src: url('../fonts/DM_Sans/DMSans-VariableFont_opsz\,wght.ttf');
+}
+
+@font-face {
+    font-family: 'Montserrat';
+    src: url('../fonts/Montserrat/Montserrat-VariableFont_wght.ttf');
+}
+
+@font-face {
+    font-family: 'PlayFair';
+    src: url('../fonts/Playfair_Display/PlayfairDisplay-VariableFont_wght.ttf');
+}
+
+
+h1, h2, h3 {
+    font-family: 'Playfair';
+	text-align: center;
+}
+
+.searcherClicked input {
+    display: block;
+    background-color: aliceblue;
+    justify-content: right;
+    width: 100%;
+    transition: 1s;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 1rem;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+#invoice-details {
+    width: 40%;
+}
+
+#invoice-details tr th {
+    width: 40%;
+}
+
+.contingut #invoice-table{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 20px;
+}
+
+.contingut th, .contingut td {
+    padding: 8px;
+}
+
+.contingut th {
+    text-align: center;
+    background-color: #aa8e31;
+    color: #181d33;
+}
+
+.contingut td {
+    text-align: center;
+}
+
+.contingut td a {
+    text-decoration: none;
+    color: #181d33;
+}
+
+/*.contingut{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    justify-content: center;
+}*/
+
+#div-table {
+    width: 100%;
+    margin: 1rem auto;
+}
+
+main .contingut #div-table{
+    padding-bottom: 30px;
+}
+
+button {
+    background-color: #e7d381ff;
+    color: #181d33ff;
+    border: none;
+    cursor: pointer;
+    font-family: 'DM Sans', sans-serif;
+    padding: 10px 20px;
+    border-radius: 5px;
+}
+
+button:hover {
+    background-color: #aa8e31ff;
+    transition: 1s;
+}
+
+.contingut .delete-button {
+    background-color: #f44336;
+    color: white;
+}
+
+.contingut .edit-button {
+    background-color: #008CBA;
+    color: white;
+}
+
+.contingut .details-button {
+    background-color: #4CAF50;
+    color: white;
+}
+
+.contingut .delete-button:hover {
+    background-color: #8a1c24;
+}
+
+.contingut .edit-button:hover {
+    background-color: #004080;
+}
+
+.contingut .details-button:hover {
+    background-color: #388E3C;
+}
+
+
+tr:nth-child(even){
+    background-color: rgba(93,93,93, 0.1);
+}
+
+tbody>tr:hover {
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.table-searcher-button {
+    color: black;
+    background-color: #aa8e31ff;
+    cursor: pointer;
+    font-family: 'DM Sans', sans-serif;
+    border: 1px solid #aa8e31ff;
+    border-radius: 0 40px 40px 0;
+    height: 40px;
+    width: 64px;
+}
+
+contingut {
+    margin: 0 auto;
+    text-align: center;
+}
+
+#div-table {
+    width: 100%;
+    margin-top: 1rem;
+    max-width: 1200px;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+    max-width: 400px;
+}
+
+label {
+    font-size: 16px;
+    color: #181d33;
+}
+
+.contingut input, .contingut select {
+    padding: 10px;
+    margin-top: 0.5rem;
+    border: 1px solid #e7d381;
+    border-radius: 5px;
+    font-size: 14px;
+    outline: none;
+}
+
+.table-searcher {
+    display: flex;
+    align-items: center;
+    margin: 0 auto;
+    background-color: white;
+    border: 1px solid #ccc;
+    width: 300px;
+    padding: 0;
+    border-radius: 40px 40px 40px 40px;
+}
+
+.contingut .table-searcher-input {
+    flex: 1;
+    border: none;
+    outline: none;
+    font-size: 16px;
+    margin-left: 20px;
+    margin-top: 0;
+    padding: 0;
+}
+
+button#button-generate{
+    margin: 20px;
+}
+
+@media only screen and (max-width: 767px) {
+
+    #backoffice-table thead{
+        border: none;
+    }
+
+    #backoffice-table th{
+        display: none;
+    }
+
+    #backoffice-table tbody tr{
+        display: flex;
+        flex-direction: column;
+        margin-top: 30px;
+        background-color: rgba(212, 197, 147, 0.4);
+        border-radius: 7px;
+        padding: 10px;
+    }
+
+    #backoffice-table td{
+        display: flex;
+        align-items: center;
+    }
+
+    #backoffice-table td:last-child{
+        display: flex;
+        padding-top: 15px;
+        align-items: center;
+        justify-content: center;
+        border: none;
+    }
+
+    #backoffice-table td[data-title]{
+        display: flex;
+        border: none;
+    }
+
+    #backoffice-table td[data-title]:before{
+        content: attr( data-title );
+        text-align: left;
+        width: 50%;
+        padding-right: 10px;
+    }
+
+    table {
+        box-shadow: none;
+    }
+
+    .delete-button, .edit-button, .details-button{
+        margin: 0 1em;
+    }
+}
+

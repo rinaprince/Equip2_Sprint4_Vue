@@ -1,0 +1,52 @@
+/* Estilo para el modal de confirmación */
+.modal {
+    display: none; /* Oculta el modal por defecto */
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0,0,0,0.7); /* Fondo oscuro semi-transparente */
+}
+
+/* Estilo para el contenido dentro del modal */
+.modal-content {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: #fff;
+    padding: 20px;
+    text-align: center;
+}
+
+/* Estilo para el botón de cerrar */
+.close {
+    position: absolute;
+    top: 10px;
+    right: 20px;
+    font-size: 20px;
+    color: #aaa;
+    cursor: pointer;
+}
+
+/* Estilo para los botones dentro del modal */
+button {
+    padding: 10px;
+    margin: 5px;
+    cursor: pointer;
+}
+
+/* Estilo para el botón de confirmar (puedes ajustar el color según tu diseño) */
+#confirmDeleteButton {
+    background-color: #d9534f; /* Color rojo */
+    color: #fff;
+    border: none;
+}
+
+/* Estilo para el botón de cancelar (puedes ajustar el color según tu diseño) */
+#cancelDeleteButton {
+    background-color: #337ab7; /* Color azul */
+    color: #fff;
+    border: none;
+}

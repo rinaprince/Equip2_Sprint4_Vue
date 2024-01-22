@@ -1,0 +1,75 @@
+.cancel-order-view {
+    max-width: 600px;
+    margin: 20px auto;
+    background-color: #fff;
+    padding: 20px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    border-radius: 5px;
+}
+
+.cancel-order-view h2 {
+    color: #333;
+}
+
+.cancel-order-view .message {
+    color: #900;
+}
+
+.cancel-order-view p {
+    color: #555;
+}
+
+.cancel-order-view form {
+    margin-top: 20px;
+}
+
+.order-details-table {
+    width: 100%;
+    margin-top: 10px;
+    border-collapse: collapse;
+}
+
+.order-details-table th, .order-details-table td {
+    border: 1px solid #ddd;
+    padding: 8px;
+    text-align: left;
+}
+
+.order-details-table th {
+    background-color: #f2f2f2;
+}
+
+/* Estilos CSS según tus preferencias */
+.cancel-order-view .button-group {
+    margin-top: 20px;
+    display: flex;
+    gap: 10px;
+}
+
+.cancel-order-view .confirm-button {
+    background-color: #ff3333; /* Rojo */
+    color: #ffffff;
+    padding: 10px 15px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.1s ease;
+}
+
+.cancel-order-view .confirm-button:hover {
+    background-color: #cc0000; /* Color más oscuro al pasar el ratón */
+}
+
+.cancel-order-view .cancel-button {
+    background-color: #333;
+    color: #ffffff;
+    padding: 10px 15px;
+    text-decoration: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.1s ease;
+}
+
+.cancel-order-view .cancel-button:hover {
+    background-color: #555;
+}

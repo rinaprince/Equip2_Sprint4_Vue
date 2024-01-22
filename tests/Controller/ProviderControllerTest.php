@@ -7,13 +7,14 @@ use Doctrine\ORM\EntityManagerInterface;
 use Doctrine\ORM\EntityRepository;
 use Symfony\Bundle\FrameworkBundle\KernelBrowser;
 use Symfony\Bundle\FrameworkBundle\Test\WebTestCase;
+use Symfony\Component\HttpFoundation\File\UploadedFile;
 
 class ProviderControllerTest extends WebTestCase
 {
     private KernelBrowser $client;
     private EntityManagerInterface $manager;
     private EntityRepository $repository;
-    private string $path = '/provider/';
+    private string $path = '/providers/';
 
     protected function setUp(): void
     {
@@ -44,25 +45,63 @@ class ProviderControllerTest extends WebTestCase
     {
         //$this->markTestIncomplete();
         $this->client->request('GET', sprintf('%snew', $this->path));
+        $this->client->catchExceptions(false);
+
+
+        $uploadedFile = new UploadedFile(
+            __DIR__.'/../../resources/files/demo.odt',
+            'demo.odt'
+        );
 
         self::assertResponseStatusCodeSame(200);
 
         $this->client->submitForm('Save', [
-            'provider[email]' => 'Testing',
-            'provider[phone]' => 'Testing',
-            'provider[dni]' => 'Testing',
-            'provider[cif]' => 'Testing',
+            'provider[businessName]' => 'proves@gmail.com',
+            'provider[email]' => 'proves@gmail.com',
+            'provider[phone]' => '666666666',
+            'provider[dni]' => '12345678Z',
+            'provider[cif]' => 'B12345678',
             'provider[address]' => 'Testing',
-            'provider[bankTitle]' => 'Testing',
-            'provider[managerNif]' => 'Testing',
-            'provider[LOPDdoc]' => 'Testing',
-            'provider[constitutionArticle]' => 'Testing',
+            'provider[bankTitleFile][file]' => $uploadedFile,
+            'provider[managerNif]' => '12345678Z',
+            'provider[LOPDdocFile][file]' => $uploadedFile,
+            'provider[constitutionArticleFile][file]' => $uploadedFile,
         ]);
 
         self::assertResponseRedirects($this->path);
 
-        self::assertSame(1, $this->getRepository()->count([]));
+        self::assertSame(1, $this->repository->count([]));
     }
+
+    public function testNewFailsIfNoDataSent(): void
+    {
+        $this->markTestIncomplete();
+      /*  $this->client->request('GET', sprintf('%snew', $this->path));
+        $this->client->catchExceptions(false);
+
+        self::assertResponseStatusCodeSame(200);
+
+        $this->client->submitForm('Save', [
+            'provider[businessName]' => '',
+            'provider[email]' => '',
+            'provider[phone]' => '',
+            'provider[dni]' => '',
+            'provider[cif]' => '',
+            'provider[address]' => '',
+            'provider[bankTitle]' => '',
+            'provider[managerNif]' => '',
+            'provider[LOPDdoc]' => '',
+            'provider[constitutionArticle]' => '',
+        ]);
+
+
+        self::assertSelectorExists("#provider_email.is-invalid");
+        self::assertSelectorExists("#provider_businessName.is-invalid");
+        self::assertSelectorExists("input[name=\"provider[dni]\"].is-invalid");*/
+
+        //self::assertSame(1, $this->repository->count([]));
+    }
+
 
     public function testShow(): void
     {

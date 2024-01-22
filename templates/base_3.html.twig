@@ -4,13 +4,22 @@
     <meta charset="UTF-8">
     <title>{% block title %}Front Office{% endblock %}</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css">
-    <link  href="{{ asset('equip3/Normalize.css') }}" rel="stylesheet">
-    <link  href="{{ asset('equip3/grid.css') }} " rel="stylesheet">
-    <link  href="{{ asset('equip3/variables.css') }}" rel="stylesheet">
-    <link  href="{{ asset('equip3/squeleton-frontend.css') }}" rel="stylesheet">
-    <script src="{{ asset('equip3/burger.js') }}" defer ></script>
-    <script src="{{ asset('equip3/searchBar.js') }}" defer ></script>
+    <link  href="{{ asset('equip3/css/Normalize.css') }}" rel="stylesheet">
+    <link  href="{{ asset('equip3/css/grid.css') }} " rel="stylesheet">
+    <link  href="{{ asset('equip3/css/variables.css') }}" rel="stylesheet">
+    <script src="{{ asset('equip3/js/burger.js') }}" defer ></script>
+    <script src="{{ asset('equip3/js/searchBar.js') }}" defer ></script>
+    {% block stylesheets %}
+        {{ encore_entry_link_tags('app') }}
+    {% endblock %}
 
+    <link  href="{{ asset('equip3/css/squeleton-frontend.css') }}" rel="stylesheet">
+
+    {% block javascripts %}
+        {{ encore_entry_script_tags('app') }}
+
+
+    {% endblock %}
 </head>
 <body>
 <header class="container-fluid">
@@ -20,7 +29,7 @@
                 <img src="{{ asset('equip3/img/logoBHEC.png') }}" alt="logo BEHC" width="50px"/>
                 <ul class="hidden">
                     <li>
-                        <a href="/catalogue_list.php">Catàleg</a>
+                        <a href="/cataleg">Catàleg</a>
                     </li>
                     <li>
                         <a href="#">Contacte</a>
@@ -54,7 +63,7 @@
                         </a>
                     </li>
                     <li>
-                        <a href="/garage_list.php">
+                        <a href="/garage">
                             <img src="{{ asset('equip3/img/garatge-Groc.png') }}" alt="Imatge Garatge" id="garatge">
                         </a>
                     </li>
@@ -74,7 +83,7 @@
                                 <nav id="main-menu">
                                     <ul>
                                         <li>
-                                            <a href="/catalogue_list.php">
+                                            <a href="/cataleg">
                                                 Catàleg
                                             </a>
                                         </li>

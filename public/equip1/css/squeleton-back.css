@@ -1,0 +1,220 @@
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:opsz@9..40&family=Playfair+Display&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:opsz@9..40&family=Montserrat&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    font-size: 1.1rem;
+    box-sizing: border-box;
+}
+
+body {
+    background-color: var(--quaternary-color);
+    font-family: var(--primary-fontFamily), 'Courier New', Courier, monospace;
+}
+
+/* Reinicia els estils per defecte */
+
+/* Estils de la capçalera */
+header {
+    background-color: var(--primary-color);
+
+    right: 0;
+    left: 0;
+    width: 100%;
+    top: 0;
+    z-index: 1;
+}
+
+/* Estils del logotip */
+.logo {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.img-logo-header {
+    width: 50px;
+    margin: 0.9rem 0 0.6rem 0;
+}
+
+/* Estils de la navegació */
+.nav-header {
+    height: 100%;
+}
+
+.nav-header>ul {
+    display: flex;
+    justify-content: center;
+    gap: 3.1rem;
+}
+
+.nav-header>ul>li {
+    list-style: none;
+}
+
+.nav-header>ul>li>a {
+    color: var(--quaternary-color);
+    font-size: 1.25rem;
+    font-family: 'Playfair Display', serif;
+}
+
+/* Efecte de ressaltat dels enllaços */
+a:hover {
+    opacity: 80%;
+}
+
+/* Estils del grup d'icones socials */
+.grup-icones>ul {
+    display: flex;
+    justify-content: flex-end;
+}
+
+.grup-icones>ul>li {
+    list-style: none;
+}
+
+.grup-icones>ul>li>a>img {
+    width: 1.8rem;
+}
+
+#menu-mobile {
+    display: none;
+}
+
+/* ----------------------------------- SECCIÓ POSTERIOR ----------------------------*/
+
+/* Estils de la secció */
+section {
+    font-family: var(--primary-fontFamily), -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen-Sans, Ubuntu, Cantarell, "Helvetica Neue", Helvetica, Arial, sans-serif;
+}
+
+/* Estils del títol */
+.title {
+    width: 100%;
+
+    text-align: center;
+}
+
+/*  ----------------------------------------------- ASIDE -----------------------------------------------  */
+
+.aside {
+    padding: 0;
+    background-color: var(--tertiary-color);
+    position: relative;
+}
+
+#main-menu li {
+    padding: 8% 0% 8% 15%;
+    list-style: none;
+    text-align: left;
+    font-size: 1em;
+}
+
+#main-menu li a {
+    color: white;
+    text-decoration: none;
+}
+
+#main-menu li:hover {
+    background-color: #6e5c20;
+}
+
+#main-menu .submenu-content {
+    display: none;
+    list-style: none;
+    padding: 0;
+}
+
+#main-menu .submenu-content li {
+    margin: 0.5em 0;
+}
+
+#main-menu .submenu-content a {
+    color: #e7d381ff;
+}
+
+#main-menu .submenu:hover .submenu-content {
+    display: block;
+}
+
+#main-menu .fas {
+    margin-right: 0.5em;
+}
+
+.fa-chevron-right {
+    font-size: 12px;
+    width: 15%;
+}
+
+.fa-chevron-down {
+    font-size: 12px;
+    width: 15%;
+}
+
+/*  ----------------------------------------------- FOOTER -----------------------------------------------  */
+
+footer {
+    padding: 1em 0;
+    background-color: var(--primary-color);
+}
+
+.footerContent>h2 {
+    margin: 0 0.5em;
+    color: var(--secundary-color);
+    font-family: var(--primary-fontFamily);
+}
+
+.footerContent {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.footerContent>img {
+    width: 35px;
+}
+
+
+/* --------------------------------------------------------------------- MOVIL --------------------------------------------------------------------- */
+
+@media (max-width: 770px) {
+
+    #menu-desktop {
+        justify-content: right;
+    }
+
+    #menu-mobile {
+        display: flex;
+        width: auto;
+        order: 2;
+        z-index: 2;
+    }
+
+    #logoAndNav {
+        display: inline;
+    }
+
+    #pages {
+        display: none;
+    }
+
+    .displayHambMenu {
+        display: flex;
+        width: 50%;
+        flex-direction: column;
+        position: absolute;
+        right: 0;
+        top: 76px;
+        background-color: #aa8e31;
+    }
+
+    .navLinks {
+        padding: 10px 15px;
+    }
+
+    aside {
+        display: none;
+    }
+}

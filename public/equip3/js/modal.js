@@ -13,13 +13,12 @@ function closeMenuModal() {
 }
 
 // Agregar un controlador de eventos al icono de usuario
-var usuarioIcon = document.getElementById('usuari');
-usuarioIcon.addEventListener('click', openMenuModal);
+//var usuarioIcon = document.getElementById('usuari');
+//usuarioIcon.addEventListener('click', openMenuModal);
 
 // Modificar el controlador de eventos para el botón de administración
 var administrationMenuBtn = document.getElementById('administration-menu-btn');
-administrationMenuBtn.addEventListener('click', function (event) {
-    event.preventDefault(); // Prevenir el comportamiento predeterminado del enlace
+function openAdmin() {
     var administrationMenu = document.getElementById('administration-menu');
 
     if (administrationMenu.style.display === 'block') {
@@ -27,6 +26,16 @@ administrationMenuBtn.addEventListener('click', function (event) {
     } else {
         administrationMenu.style.display = 'block';
     }
-});
+}
 
+
+
+// Agregar controladores de eventos al hacer clic en "Catàleg" y "Administració"
+/*
+document.getElementById('catalog-menu-btn').addEventListener('click', function (event) {
+    event.preventDefault(); // Prevenir el comportamiento predeterminado del enlace
+    var catalogMenu = document.getElementById('catalog-menu');
+    catalogMenu.style.display = (catalogMenu.style.display === 'block') ? 'none' : 'block';
+});
+*/
 

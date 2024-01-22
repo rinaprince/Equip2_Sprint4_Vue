@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Plantilla</title>
+    <link href="{{ asset('styles/equip2/css/Normalize.css') }}" type="text/css" rel="stylesheet">
+    <link href="{{ asset('styles/equip2/css/grid.css') }}" type="text/css" rel="stylesheet">
+    <link href="{{ asset('styles/equip2/css/backoffice-skeleton.css.css') }}" type="text/css" rel="stylesheet">
+    <link href="{{ asset('styles/equip2/css/content.css') }}" type="text/css" rel="stylesheet">
+    <link href="{{ asset('styles/equip2/css/styles_order.css') }}" type="text/css" rel="stylesheet">
+    <link href="{{ asset('styles/equip2/css/modal.css') }}" type="text/css" rel="stylesheet">
+    <link href="{{ asset('styles/equip2/css/ajax.css') }}" type="text/css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css">
+    <!-- JavaScript -->
+    <script src="https://code.jquery.com/jquery-3.7.0.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.tablesorter/2.31.3/js/jquery.tablesorter.min.js" integrity="sha512-qzgd5cYSZcosqpzpn7zF2ZId8f/8CHmFKZ8j7mU4OUXTNRd5g+ZHBPsgKEwoqxCtdQvExE5LprwwPAgoicguNg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="{{ asset('styles/equip2/js/modal.js') }}" defer></script>
+    <script src="{{ asset('styles/equip2/js/searcher.js') }}" defer></script>
+    <script src="{{ asset('styles/equip2/js/menu_aside.js') }}" defer></script>
+    <script src="{{ asset('styles/equip2/js/menu-burguer.js') }}" defer></script>
+    <script src="{{ asset('styles/equip2/js/form_proveedores.js') }}" defer></script>
+    <script src="{{ asset('styles/equip2/js/taules.js') }}" defer></script>
+    <script src="{{ asset('styles/equip2/js/tableSorter.js') }}" defer></script>
+    <script src="{{ asset('styles/equip2/js/ajax.js') }}" defer></script>
+</head>
+
+<body>
+<header>
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-12">
+                <div id="headerDiv">
+                    <a href="/">
+                        <div id="logoAndNav">
+                            <img src="{{ asset('styles/equip2/img/logoBHEC.png') }}" alt="Logo">
+                        </div>
+                    </a>
+                    <nav id="menu-desktop" class="navIcons">
+                        <a href="#"><img src="{{ asset('styles/equip2/img/icones/usuari-Groc.png') }}" alt="user" class="icon" id="usuari"></a>
+                    </nav>
+
+                    <nav id="menu-mobile">
+                        <div id="burger">
+                            <span class="line1"></span>
+                            <span class="line2"></span>
+                            <span class="line3"></span>
+                        </div>
+                        <div class="ocultMenu">
+                            <nav id="main-menu">
+                                <ul>
+                                    <li><a href="{{ path('templates') }}"><i class="fas fa-home"></i> Inici</a></li>
+                                    <li><a href="/"><i class="fas fa-exchange-alt"></i> Moviments</a></li>
+                                    <li><a href="/"><i class="fas fa-shopping-cart"></i> Comandes</a></li>
+                                    <li class="submenu">
+                                        <a href="#"><i class="fas fa-users"></i> Usuaris <i class="fas fa-chevron-right"></i></a>
+                                        <ul class="submenu-content">
+                                            <li><a href="#">Clients</a></li>
+                                            <li><a href="#">Administratius</a></li>
+                                            <li><a href="#">Proveïdors</a></li>
+                                        </ul>
+                                    </li>
+                                    <li class="submenu">
+                                        <a href="#"><i class="fas fa-user-tie"></i> Vehicles <i class="fas fa-chevron-right"></i></a>
+                                        <ul class="submenu-content">
+                                            <li><a href="{{ path('templates') }}">Llistat dels vehicles</a></li>
+                                            <li><a href="/"><i class="fas fa-box"></i> Stock</a></li>
+                                        </ul>
+                                    </li>
+                                    <li><a href="{{ path('templates') }}"><i class="fas fa-file-invoice"></i> Factures</a></li>
+                                    <li class="submenu">
+                                        <a href="#"><i class="fas fa-cogs"></i> Configuració <i class="fas fa-chevron-right"></i></a>
+                                        <ul class="submenu-content">
+                                            <li><a href="#"><i class="fas fa-user-tag"></i> Rols</a></li>
+                                            <li><a href="#"><i class="fas fa-user-shield"></i> Privacitat</a></li>
+                                            <li><a href="#"><i class="fas fa-paint-brush"></i> Apariència</a></li>
+                                        </ul>
+                                    </li>
+                                </ul>
+                            </nav>
+                        </div>
+                    </nav>
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
+
+
+
+<main>
+
+
+    <div class="ocultMenuEs">
+        <nav id="main-menuEs">
+            <ul>
+                <li><a href="{{ path('templates') }}"><i class="fas fa-home"></i> Inici</a></li>
+                <li><a href="/"><i class="fas fa-exchange-alt"></i> Moviments</a></li>
+                <li><a href="/"><i class="fas fa-shopping-cart"></i> Comandes</a></li>
+                <li class="submenu">
+                    <a href="#"><i class="fas fa-users"></i> Usuaris <i class="fas fa-chevron-right"></i></a>
+                    <ul class="submenu-content">
+                        <li><a href="#">Clients</a></li>
+                        <li><a href="#">Administratius</a></li>
+                        <li><a href="#">Proveïdors</a></li>
+                    </ul>
+                </li>
+                <li class="submenu">
+                    <a href="#"><i class="fas fa-user-tie"></i> Vehicles <i class="fas fa-chevron-right"></i></a>
+                    <ul class="submenu-content">
+                        <li><a href="{{ path('templates') }}">Llistat dels vehicles</a></li>
+                        <li><a href="/"><i class="fas fa-box"></i> Stock</a></li>
+                    </ul>
+                </li>
+                <li><a href="{{ path('templates') }}"><i class="fas fa-file-invoice"></i> Factures</a></li>
+                <li class="submenu">
+                    <a href="#"><i class="fas fa-cogs"></i> Configuració <i class="fas fa-chevron-right"></i></a>
+                    <ul class="submenu-content">
+                        <li><a href="#"><i class="fas fa-user-tag"></i> Rols</a></li>
+                        <li><a href="#"><i class="fas fa-user-shield"></i> Privacitat</a></li>
+                        <li><a href="#"><i class="fas fa-paint-brush"></i> Apariència</a></li>
+                    </ul>
+                </li>
+            </ul>
+        </nav>
+    </div>
+    {% block body %}
+        <h1>Prova</h1>
+    {% endblock %}
+</main>
+</body>
+</html>

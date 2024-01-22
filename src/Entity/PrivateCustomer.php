@@ -9,4 +9,8 @@ use Doctrine\ORM\Mapping as ORM;
 class PrivateCustomer extends Customer
 {
 
+    public function getType(): string
+    {
+        return "private";
+    }
 }

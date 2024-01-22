@@ -1,0 +1,95 @@
+{% extends 'base_back_1.html.twig' %}
+
+{% block title %}Pàgina Index Customer!{% endblock %}
+
+{% block body %}
+
+    <div {{ vue_component('CustomerList_component', { 'customers': customers }) }}></div>
+
+    <div class="navigation d-flex justify-content-center">
+        {{ knp_pagination_render(pagination) }}
+    </div
+
+{% endblock %}
+
+
+
+
+
+
+
+{#
+
+{% block body %}
+    <div {{ vue_component('CustomerList_component', { 'customers': customers }) }}></div>
+
+
+    <h1>Customer index</h1>
+
+    <form method="GET" class="col-12 col-lg-auto my-3 mb-lg-0 me-lg-3" role="search">
+        <div class="input-group">
+            <div class="form-outline" data-mdb-input-init>
+                <input type="search" id="form1" class="form-control" placeholder="Search..."/>
+            </div>
+            <button type="button" class="btn btn-primary" data-mdb-ripple-init>
+                <i class="fas fa-search"></i>
+            </button>
+        </div>
+    </form>
+
+    <div id="div-table">
+        <table class="table mt-3 contingut">
+            <thead>
+            <tr>
+                <th>Name</th>
+                <th>Lastname</th>
+                <th>Address</th>
+                <th>Dni</th>
+                <th>Phone</th>
+                <th>Email</th>
+                <th>Customer_type</th>
+                <th>Operations</th>
+            </tr>
+            </thead>
+            <tbody>
+            {% for customer in customers %}
+                <tr>
+                    <td data-title="Name:">{{ customer.name }}</td>
+                    <td data-title="Lastname">{{ customer.lastname }}</td>
+                    <td data-title="Address">{{ customer.address }}</td>
+                    <td data-title="DNI">{{ customer.dni }}</td>
+                    <td data-title="Phone">{{ customer.phone }}</td>
+                    <td data-title="Email">{{ customer.email }}</td>
+                    <td data-title="Type">{{ customer.type }}</td>
+                    <td data-title="Operations">
+                        {% if customer.type == "private" %}
+                            <a href="{{ path('app_private_customer_show', {'id': customer.id}) }}"><button class="details-button" data-invoice-id="3"><i
+                                            class="fas fa-eye"></i></button></a>
+                            <a href="{{ path('app_private_customer_edit', {'id': customer.id}) }}"><button class="edit-button" data-invoice-id="3"><i
+                                            class="fas fa-pencil-alt"></i></button></a>
+                        {% elseif customer.type == "professional" %}
+                            <a href="{{ path('app_professional_show', {'id': customer.id}) }}"><button class="details-button" data-invoice-id="3"><i
+                                            class="fas fa-eye"></i></button></a>
+                            <a href="{{ path('app_professional_edit', {'id': customer.id}) }}"><button class="edit-button" data-invoice-id="3"><i
+                                            class="fas fa-pencil-alt"></i></button></a>
+                        {% endif %}
+                    </td>
+                </tr>
+            {% else %}
+                <tr>
+                    <td colspan="8">no records found</td>
+                </tr>
+            {% endfor %}
+            </tbody>
+        </table>
+    </div>
+
+    <div class="navigation d-flex justify-content-center">
+        {{ knp_pagination_render(customers) }}
+    </div>
+
+
+
+{% endblock %}
+
+        #}

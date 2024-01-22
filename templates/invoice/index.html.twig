@@ -1,39 +1,18 @@
 {% extends 'base_back_3.html.twig' %}
 
 {% block title %}Invoice index{% endblock %}
+{% block stylesheets %}
+    {{ parent() }}
+    <link rel="stylesheet" href="{{ asset('equip3/css/Personal.css') }}">
+{% endblock %}
 
 {% block body %}
-    <h1>Invoice index</h1>
 
-    <table class="table">
-        <thead>
-            <tr>
-                <th>Id</th>
-                <th>Number</th>
-                <th>Price</th>
-                <th>Date</th>
-                <th>actions</th>
-            </tr>
-        </thead>
-        <tbody>
-        {% for invoice in invoices %}
-            <tr>
-                <td>{{ invoice.id }}</td>
-                <td>{{ invoice.number }}</td>
-                <td>{{ invoice.price }}</td>
-                <td>{{ invoice.date ? invoice.date|date('Y-m-d') : '' }}</td>
-                <td>
-                    <a href="{{ path('app_invoice_show', {'id': invoice.id}) }}">show</a>
-                    <a href="{{ path('app_invoice_edit', {'id': invoice.id}) }}">edit</a>
-                </td>
-            </tr>
-        {% else %}
-            <tr>
-                <td colspan="5">no records found</td>
-            </tr>
-        {% endfor %}
-        </tbody>
-    </table>
+        <section class="contingut col-10">
+            <h1>Lista de Facturas</h1>
+            <div id="div-table" {{ vue_component('invoiceList_component', { 'invoices': invoices })}} ></div>
 
-    <a href="{{ path('app_invoice_new') }}">Create new</a>
+    <div class="navigation d-flex justify-content-center mt-3">
+        {{ knp_pagination_render(pagination) }}
+    </div>
 {% endblock %}
