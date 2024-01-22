@@ -3,6 +3,14 @@ defineProps({
   vehicles: Array
 });
 
+const vehiclesCreatePath = `/vehicles/new`;
+
+const vehiclesShowPath = (id) => `/vehicles/${id}`;
+
+const vehiclesEditPath = (id) => `/vehicles/${id}/edit`;
+
+const vehiclesDeletePath = (id) => `/vehicles/${id}/delete`;
+
 </script>
 
 <template>
@@ -50,10 +58,12 @@ defineProps({
       <td>{{ vehicle.isNew ? 'Yes' : 'No' }}</td>
       <td>{{ vehicle.transportIncluded ? 'Yes' : 'No' }}</td>
       <td>{{ vehicle.color }}</td>
-      <td>{{ vehicle.registrationDate ? vehicle.registrationDate|date('Y-m-d') : '' }}</td>
+      <td>{{ vehicle.registrationDate ? vehicle.registrationDate | date('Y-m-d') : '' }}</td>
       <td>
-        <a href="{{ path('app_vehicle_show', {'id': vehicle.id}) }}">show</a>
-        <a href="{{ path('app_vehicle_edit', {'id': vehicle.id}) }}">edit</a>
+        <a :href="vehiclesShowPath(vehicle.id)"><button class="details-button"><i class="fas fa-eye"></i></button></a>
+        <a :href="vehiclesEditPath(vehicle.id)"><button class="edit-button"><i class="fas fa-pencil-alt"></i></button></a>
+        <a :href="vehiclesDeletePath(vehicle.id)"><button class="delete-button" ><i
+            class="fas fa-trash"></i></button></a>
       </td>
     </tr>
     <tr>
@@ -62,5 +72,7 @@ defineProps({
     </tbody>
   </table>
 
-  <a href="{{ path('app_vehicle_new') }}">Create new</a>
+  <a :href="vehiclesCreatePath">
+    <button>Create new</button>
+  </a>
 </template>
