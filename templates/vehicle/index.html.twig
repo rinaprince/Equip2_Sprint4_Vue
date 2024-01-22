@@ -3,8 +3,12 @@
 {% block title %}Vehicle index{% endblock %}
 
 {% block body %}
-    {{ dump (vehicles) }}
+    {# {{ dump (vehicles) }} #}
     <div {{ vue_component('VehiclesList_component', { 'vehicles': vehicles }) }}></div>
+
+<div class="navigation d-flex justify-content-center">
+    {{ knp_pagination_render(pagination) }}
+</div
 {% endblock %}
 
 

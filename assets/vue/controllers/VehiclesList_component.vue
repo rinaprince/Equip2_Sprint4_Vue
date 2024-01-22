@@ -1,7 +1,6 @@
 <script setup>
-
 defineProps({
-  providers: Array
+  vehicles: Array
 });
 
 </script>

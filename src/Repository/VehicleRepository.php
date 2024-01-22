@@ -49,6 +49,22 @@ class VehicleRepository extends ServiceEntityRepository
             ;
     }
 
+    public function findByTextQuery(string $value): Query
+    {
+        return $this->createQueryBuilder('v')
+            ->andWhere('v.color LIKE :val')
+            ->orWhere('v.plate LIKE :val')
+            ->orWhere('v.fuel LIKE :val')
+            ->orWhere('v.gearShit LIKE :val')
+            ->orWhere('v.buyPrice LIKE :val')
+            ->setParameter('val', "%$value%")
+            ->orderBy('v.id', 'ASC')
+            //->setMaxResults(10)
+            ->getQuery()
+            ;
+
+    }
+
 //    public function findOneBySomeField($value): ?VehicleFixtures
 //    {
 //        return $this->createQueryBuilder('v')
