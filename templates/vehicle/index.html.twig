@@ -4,7 +4,7 @@
 
 {% block body %}
     {# {{ dump (vehicles) }} #}
-    <div {{ vue_component('VehiclesList_component', { 'vehicles': vehicles }) }}></div>
+    <div {{ vue_component('VehiclesList_component', { 'vehicles': vehicles}) }}></div>
 
 <div class="navigation d-flex justify-content-center">
     {{ knp_pagination_render(pagination) }}

@@ -21,10 +21,10 @@ class VehicleController extends AbstractController
         $q = $request->query->get('q', '');
 
 
-        /*if (empty($q))
+        if (empty($q))
             $vehicles = $vehicleRepository->findAllQuery();
         else
-            $vehicles = $vehicleRepository->findByTextQuery($q);*/
+            $vehicles = $vehicleRepository->findByTextQuery($q);
 
         $pagination = $paginator->paginate(
             $vehicles = $vehicleRepository->findAllQuery(),
@@ -32,9 +32,10 @@ class VehicleController extends AbstractController
             10
         );
         return $this->render('vehicle/index.html.twig', [
+            'vehicle' => $vehicles,
             'q' => $q,
             'pagination' => $pagination,
-            'vehicles' => $pagination->getItems()
+            'vehicles' => $pagination->getItems(),
         ]);
     }
 
