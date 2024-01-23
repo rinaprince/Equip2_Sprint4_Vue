@@ -58,7 +58,7 @@ const vehiclesDeletePath = (id) => `/vehicles/${id}/delete`;
       <td>{{ vehicle.isNew ? 'Yes' : 'No' }}</td>
       <td>{{ vehicle.transportIncluded ? 'Yes' : 'No' }}</td>
       <td>{{ vehicle.color }}</td>
-      <td>{{ vehicle.registrationDate ? vehicle.registrationDate | date('Y-m-d') : '' }}</td>
+      <td>{{ vehicle.registrationDate ? new Date(vehicle.registrationDate.date).toLocaleDateString() : '' }}</td>
       <td>
         <a :href="vehiclesShowPath(vehicle.id)"><button class="details-button"><i class="fas fa-eye"></i></button></a>
         <a :href="vehiclesEditPath(vehicle.id)"><button class="edit-button"><i class="fas fa-pencil-alt"></i></button></a>

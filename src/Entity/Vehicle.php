@@ -353,7 +353,7 @@ class Vehicle implements JsonSerializable
         return $this;
     }
 
-    function jsonSerialize(): mixed
+    function jsonSerialize(): array
     {
         return ['id' => $this->id,
             'plate' => $this->plate,
