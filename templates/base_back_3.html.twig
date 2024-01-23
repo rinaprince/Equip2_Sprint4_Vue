@@ -6,26 +6,21 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>{% block title %}BackOffice{% endblock %}</title>
 
-    {# <--- Estilos ---> #}
+    <link rel="stylesheet" href="{{ asset('equip3/grid.css') }}">
+    <link rel="stylesheet" href="{{ asset('equip3/Normalize.css') }}">
+    <link rel="stylesheet" href="{{ asset('equip3/variables.css') }}">
+    <link rel="stylesheet" href="{{ asset('equip3/squeleton-frontend.css') }}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css">
     {% block stylesheets %}
         {{ encore_entry_link_tags('app') }}
+        <link rel="stylesheet" href="{{ asset('equip3/squeleton-back.css') }}">
     {% endblock %}
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css">
-    <link rel="stylesheet" href="{{ asset('equip3/css/variables.css') }}">
-    <link rel="stylesheet" href="{{ asset('equip3/css/modal.css') }}">
-    <link rel="stylesheet" href="{{ asset('equip3/css/backend-skeleton.css') }}">
-
-    {# <--- Scripts ---> #}
-    <script src="{{ asset('equip3/js/menu-burguer.js') }}"></script>
-    <script src="{{ asset('equip3/js/menu-burguer.js') }}"></script>
-    <script src="{{ asset('equip3/js/menu_aside.js') }}"></script>
-    <script src="{{ asset('equip3/js/modal.js') }}"></script>
-
-
     {% block javascripts %}
         {{ encore_entry_script_tags('app') }}
-
     {% endblock %}
+    <script src="{{ asset('equip3/js/menu_aside.js') }}"></script>
+    <script src="{{ asset('equip3/js/menu-burguer.js') }}"></script>
+    <script src="{{ asset('equip3/js/modal.js') }}"></script>
 </head>
 
 <body>
@@ -37,64 +32,21 @@
                 <!-- Secció de logotip i navegació -->
                 <div class="logo">
                     <!-- Enllaç del logotip -->
-                    <a href="{{ path('templates') }}">
+                    <a href="#logo">
                         <!-- Imatge del logotip -->
-                        <img src="{{ asset('equip3/img/logoBHEC.png')}}" class="img-logo-header">
+                        <img src="{{ asset('equip3/img/logoBHEC.png') }}" class="img-logo-header">
                     </a>
                     <!-- Navegació amb icona d'usuari -->
                     <nav class="grup-icones">
                         <ul>
                             <li>
                                 <!-- Enllaç de l'ícona d'usuari -->
-                                <a>
+                                <a href="#usuari">
                                     <!-- Imatge de l'ícona d'usuari -->
-                                    <img src="{{ asset('equip3/img/usuari-Groc.png')}}"  alt="usuari" onclick=openMenuModal()>
+                                    <img src="{{asset('equip3/img/usuari-Groc.png')}}">
                                 </a>
                             </li>
                         </ul>
-                    </nav>
-                    <nav id="menu-mobile">
-                        <div onclick=burguer() id="burger" class="">
-                            <span class="line1"></span>
-                            <span class="line2"></span>
-                            <span class="line3"></span>
-                        </div>
-                        <div class="ocultMenu">
-                            <nav id="main-menu">
-                                <ul>
-                                    <li class="submenu"><a><i class="fas fa-file-invoice"></i> Factures <i class="fas fa-chevron-right"></i></a>
-                                        <ul class="submenu-content">
-                                            <li><a {{ path('app_invoice_index')}}>Visualitzar Factures</a></li>
-                                        </ul>
-                                    </li>
-                                    <li class="submenu"><a><i class="fas fa-users"></i> Clients <i class="fas fa-chevron-right"></i></a>
-                                        <ul class="submenu-content">
-                                            <li><a href="#">Alta de Client</a></li>
-                                            <li><a href="#">Visualitzar Clients</a></li>
-                                        </ul>
-                                    </li>
-                                    <li class="submenu"><a><i class="fas fa-user-tie"></i> Empleats </a><i class="fas fa-chevron-right"></i>
-                                        <ul class="submenu-content">
-                                            <li><a href="{{ path('app_provider_new')}}">Alta Proveïdor</a></li>
-                                            <li><a href="{{ path('app_provider_index')}}">Visualitzar Proveïdors</a></li>
-                                        </ul>
-                                    </li>
-                                    <li class="submenu">
-                                        <a><i class="fas fa-shopping-cart"></i> Comandes <i class="fas fa-chevron-right"></i></a>
-                                        <ul class="submenu-content">
-                                            <li><a href="{{ path('app_order_index')}}">Visualitzar Comandes</a></li>
-                                        </ul>
-                                    </li>
-                                    <li class="submenu">
-                                        <a><i class="fas fa-car"></i> Vehicles <i class="fas fa-chevron-right"></i></a>
-                                        <ul class="submenu-content">
-                                            <li><a href="#">Alta Vehicle</a></li>
-                                            <li><a href="{{ path('app_cataleg')}}">Visualitzar Vehicles</a></li>
-                                        </ul>
-                                    </li>
-                                </ul>
-                            </nav>
-                        </div>
                     </nav>
                 </div>
             </div>
@@ -107,64 +59,19 @@
     <div class="container-fluid">
         <div class="row">
             {% include '_aside_back.html.twig' %}
-            <article class="col-10">
+            <div class="col-10">
                 {% block body %}
                 {% endblock %}
-            </article>
+            </div>
         </div>
     </div>
 </main>
-
-
-<div id="menu-modal" class="menu-modal">
-    <div class="menu-content">
-        <a href="#" class="close-button" onclick="closeMenuModal()">&times;</a>
-        <div class="user-info">
-            <img src="{{ asset('equip3/img/usuari.png') }}" alt="Imagen de perfil">
-            <div class="user-details">
-                <h3>Tu Nombre</h3>
-                <p>correo@example.com</p>
-            </div>
-        </div>
-        <ul class="menu-links">
-            <ul class="dropdown">
-                <li><a href="/compres/compres.html">Comandes</a></li>
-                <li><a href="#">Novetats</a></li>
-                <li><a href="{{ path('templates') }}">Entrar Backoffice</a></li>
-            </ul>
-            <ul class="dropdown">
-                <li><a href="#" onclick=openAdmin()>Administració</a></li>
-                <ul class="dropdown-content" id="administration-menu">
-                    <li><a href="#">Configuració del compter usuari</a></li>
-                    <li><a href="#">Configuració del compter administrador</a></li>
-                    <li><a href="#">Cookies</a></li>
-                </ul>
-            </ul>
-        </ul>
-    </div>
-    <div id="banda-amb-logo">
-        <div id="rectangle-blau">
-            <p id="titol-rectangle">BHEC</p>
-            <div id="cercle-gris">
-                <img src="{{ asset('equip3/img/logoBHEC.png') }}" alt="Imagen del semicírculo">
-            </div>
-        </div>
-    </div>
-
-    <div id="div-sessio">
-        <ul>
-            <li id="tancar-sessio"><a href="#">Tancar Sessió</a></li>
-        </ul>
-    </div>
-</div>
-
-
 <footer>
     <div class="container-fluid">
         <div class="row">
             <div class="col-12">
                 <div class="footerContent">
-                    <img src="{{ asset('equip3/img/logoBHEC.png') }}" alt="logoFooter">
+                    <img src="{{asset('equip3/img/logoBHEC.png')}}" alt="logoFooter">
                     <h2>BHEC</h2>
                 </div>
             </div>

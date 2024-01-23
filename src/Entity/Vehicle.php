@@ -7,6 +7,7 @@ use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
 use Doctrine\DBAL\Types\Types;
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\Validator\Constraints as Assert;
 use JsonSerializable;
 
 #[ORM\Entity(repositoryClass: VehicleRepository::class)]
@@ -18,42 +19,68 @@ class Vehicle implements JsonSerializable
     private ?int $id = null;
 
     #[ORM\Column(length: 20)]
+    #[Assert\NotBlank]
+    #[Assert\Type(type :'string')]
     private ?string $plate = null;
 
     #[ORM\Column(length: 255)]
+    #[Assert\NotBlank]
+    #[Assert\Type(type :'string')]
     private ?string $observedDamages = null;
 
     #[ORM\Column]
+    #[Assert\NotBlank]
+    #[Assert\Type(type :'int')]
     private ?int $kilometers = null;
 
     #[ORM\Column]
+    #[Assert\NotBlank]
+    #[Assert\Type(type :'float')]
     private ?float $buyPrice = null;
 
     #[ORM\Column]
+    #[Assert\NotBlank]
+    #[Assert\Type(type :'float')]
     private ?float $sellPrice = null;
 
     #[ORM\Column(length: 255)]
+    #[Assert\NotBlank]
+    #[Assert\Type(type :'string')]
     private ?string $fuel = null;
 
     #[ORM\Column]
+    #[Assert\NotBlank]
+    #[Assert\Type(type :'float')]
     private ?float $iva = null;
 
     #[ORM\Column(length: 255)]
+    #[Assert\NotBlank]
+    #[Assert\Type(type :'string')]
     private ?string $description = null;
 
     #[ORM\Column(length: 255)]
+    #[Assert\NotBlank]
+    #[Assert\Type(type :'string')]
     private ?string $chassisNumber = null;
 
     #[ORM\Column(length: 255)]
+    #[Assert\NotBlank]
+    #[Assert\Type(type :'string')]
     private ?string $gearShit = null;
 
     #[ORM\Column]
+    #[Assert\NotBlank]
+    #[Assert\Type(type :'bool')]
     private ?bool $isNew = null;
 
     #[ORM\Column]
+    #[Assert\NotBlank]
+    #[Assert\Type(type :'bool')]
     private ?bool $transportIncluded = null;
 
     #[ORM\Column(length: 255)]
+    #[Assert\NotBlank]
+    #[Assert\Type(type :'string')]
     private ?string $color = null;
 
     #[ORM\Column(type: Types::DATE_MUTABLE)]

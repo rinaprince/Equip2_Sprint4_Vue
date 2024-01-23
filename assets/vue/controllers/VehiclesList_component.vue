@@ -12,60 +12,74 @@ const vehiclesEditPath = (id) => `/vehicles/${id}/edit`;
 </script>
 
 <template>
-  <h1>Vehicle index</h1>
 
-  <form method="get" role="search">
-    <input type="search" name="q" placeholder="Search..." aria-label="Search">
-    <button type="submit">Search</button>
-  </form>
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col-12">
+        <h1>Vehicle index</h1>
 
-  <table class="table">
-    <thead>
-    <tr>
-      <th>Id</th>
-      <th>Plate</th>
-      <th>ObservedDamages</th>
-      <th>Kilometers</th>
-      <th>BuyPrice</th>
-      <th>SellPrice</th>
-      <th>Fuel</th>
-      <th>Iva</th>
-      <th>Description</th>
-      <th>ChassisNumber</th>
-      <th>GearShit</th>
-      <th>IsNew</th>
-      <th>TransportIncluded</th>
-      <th>Color</th>
-      <th>RegistrationDate</th>
-      <th>actions</th>
-    </tr>
-    </thead>
-    <tbody>
-    <tr v-for="vehicle in vehicles">
-      <td>{{ vehicle.id }}</td>
-      <td>{{ vehicle.plate }}</td>
-      <td>{{ vehicle.observedDamages }}</td>
-      <td>{{ vehicle.kilometers }}</td>
-      <td>{{ vehicle.buyPrice }}</td>
-      <td>{{ vehicle.sellPrice }}</td>
-      <td>{{ vehicle.fuel }}</td>
-      <td>{{ vehicle.iva }}</td>
-      <td>{{ vehicle.description }}</td>
-      <td>{{ vehicle.chassisNumber }}</td>
-      <td>{{ vehicle.gearShit }}</td>
-      <td>{{ vehicle.isNew ? 'Yes' : 'No' }}</td>
-      <td>{{ vehicle.transportIncluded ? 'Yes' : 'No' }}</td>
-      <td>{{ vehicle.color }}</td>
-      <td>{{ vehicle.registrationDate ? new Date(vehicle.registrationDate.date).toLocaleDateString() : '' }}</td>
-      <td>
-        <a :href="vehiclesShowPath(vehicle.id)"><button class="details-button"><i class="fas fa-eye"></i></button></a>
-        <a :href="vehiclesEditPath(vehicle.id)"><button class="edit-button"><i class="fas fa-pencil-alt"></i></button></a>
-      </td>
-    </tr>
-    </tbody>
-  </table>
+        <div class="d-flex justify-content-end mb-4">
+          <a :href="vehiclesCreatePath">
+            <button type="button" class="btn btn-warning">Create new</button>
+          </a>
+        </div>
 
-  <a :href="vehiclesCreatePath">
-    <button>Create new</button>
-  </a>
+        <div class="d-flex justify-content-start mt-4">
+          <form method="get" role="search">
+            <input type="search" name="q" placeholder="Search..." aria-label="Search">
+            <button type="submit">Search</button>
+          </form>
+        </div>
+        <table class="table">
+          <thead>
+          <tr>
+            <th>Id</th>
+            <th>Plate</th>
+            <th>ObservedDamages</th>
+            <th>Kilometers</th>
+            <th>BuyPrice</th>
+            <th>SellPrice</th>
+            <th>Fuel</th>
+            <th>Iva</th>
+            <th>Description</th>
+            <th>ChassisNumber</th>
+            <th>GearShit</th>
+            <th>IsNew</th>
+            <th>TransportIncluded</th>
+            <th>Color</th>
+            <th>RegistrationDate</th>
+            <th>actions</th>
+          </tr>
+          </thead>
+          <tbody>
+          <tr v-for="vehicle in vehicles">
+            <td>{{ vehicle.id }}</td>
+            <td>{{ vehicle.plate }}</td>
+            <td>{{ vehicle.observedDamages }}</td>
+            <td>{{ vehicle.kilometers }}</td>
+            <td>{{ vehicle.buyPrice }}</td>
+            <td>{{ vehicle.sellPrice }}</td>
+            <td>{{ vehicle.fuel }}</td>
+            <td>{{ vehicle.iva }}</td>
+            <td>{{ vehicle.description }}</td>
+            <td>{{ vehicle.chassisNumber }}</td>
+            <td>{{ vehicle.gearShit }}</td>
+            <td>{{ vehicle.isNew ? 'Yes' : 'No' }}</td>
+            <td>{{ vehicle.transportIncluded ? 'Yes' : 'No' }}</td>
+            <td>{{ vehicle.color }}</td>
+            <td>{{ vehicle.registrationDate ? new Date(vehicle.registrationDate.date).toLocaleDateString() : '' }}</td>
+            <td>
+              <a :href="vehiclesShowPath(vehicle.id)">
+                <button type="button" class="details-button btn btn-primary"><i class="fas fa-eye"></i></button>
+              </a>
+              <a :href="vehiclesEditPath(vehicle.id)">
+                <button type="button" class="edit-button btn btn-success"><i class="fas fa-pencil-alt"></i></button>
+              </a>
+            </td>
+          </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
 </template>
