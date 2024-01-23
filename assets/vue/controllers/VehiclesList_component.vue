@@ -66,9 +66,6 @@ const vehiclesDeletePath = (id) => `/vehicles/${id}/delete`;
             class="fas fa-trash"></i></button></a>
       </td>
     </tr>
-    <tr>
-      <td colspan="16">no records found</td>
-    </tr>
     </tbody>
   </table>
 
