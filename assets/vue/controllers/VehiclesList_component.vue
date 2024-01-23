@@ -9,8 +9,6 @@ const vehiclesShowPath = (id) => `/vehicles/${id}`;
 
 const vehiclesEditPath = (id) => `/vehicles/${id}/edit`;
 
-const vehiclesDeletePath = (id) => `/vehicles/${id}/delete`;
-
 </script>
 
 <template>
@@ -62,8 +60,6 @@ const vehiclesDeletePath = (id) => `/vehicles/${id}/delete`;
       <td>
         <a :href="vehiclesShowPath(vehicle.id)"><button class="details-button"><i class="fas fa-eye"></i></button></a>
         <a :href="vehiclesEditPath(vehicle.id)"><button class="edit-button"><i class="fas fa-pencil-alt"></i></button></a>
-        <a :href="vehiclesDeletePath(vehicle.id)"><button class="delete-button" ><i
-            class="fas fa-trash"></i></button></a>
       </td>
     </tr>
     </tbody>
