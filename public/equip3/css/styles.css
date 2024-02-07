@@ -1,0 +1,51 @@
+/* Els meus estils */
+:root{
+    --primary-color : #181d33ff;
+    --secundary-color :#e7d381ff;
+    --tertiary-color :#aa8e31ff;
+    --quaternary-color :#e7e7e9;
+    --primary-fontFamily :'DM Sans';
+
+    /* Botons de taules backoffice*/
+    --button-delete : #f44336;
+    --button-edit : #008CBA;
+    --button-details : #4CAF50;
+
+    /* Hovers en els botons */
+    --button-delete-hover : #8a1c24;
+    --button-edit-hover : #004080;
+    --button-details-hover : #388E3C;
+
+    /* Botons generals */
+    --button-normal: var(--secundary-color);
+    --button-text: white;
+
+    /* Botons generals hovers */
+    --button-normal-hover: var(--tertiary-color);
+
+}
+
+.button-text-primary-BHEC{
+    color: var(--button-text);
+}
+
+.button-primary-BHEC{
+    background-color: var(--button-normal);
+}
+
+.button-primary-BHEC:hover{
+    background-color: var(--button-normal-hover);
+    color: var(--button-text);
+}
+
+.button-searcher-BHEC{
+    background-color: var(--tertiary-color);
+}
+
+.button-searcher-BHEC:hover{
+    background-color: var(--tertiary-color);
+}
+
+.table th{
+    background-color: var(--tertiary-color);
+}

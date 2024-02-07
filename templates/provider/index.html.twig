@@ -1,13 +1,20 @@
 {% extends 'base_back_3.html.twig' %}
 
-{% block title %}Provider index{% endblock %}
+{% block title %}Proveïdors{% endblock %}
 
 {% block body %}
-    <h1>Providers</h1>
-    <div {{ vue_component('ProvidersList_component', { 'providers': providers, 'q':q, 'token': csrf_token('_token')  }) }}></div>
-    <div class="navigation d-flex justify-content-center">
-        {{ knp_pagination_render(pagination) }}
+    <div class="container">
+        <div class="row">
+            <div class="col-12">
+            <div class="d-flex justify-content-center mt-4">
+                <h1>Proveïdors</h1>
+            </div>
+            <div {{ vue_component('ProvidersList_component', { 'providers': providers, 'q':q, 'token': csrf_token('_token')  }) }}></div>
+            <div class="navigation d-flex justify-content-center">
+                {{ knp_pagination_render(pagination) }}
+            </div>
+            </div>
+        </div>
     </div>
-
 
 {% endblock %}

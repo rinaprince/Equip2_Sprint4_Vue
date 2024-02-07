@@ -1,77 +1,96 @@
 <template>
-  <div class="d-flex align-items-center">
-    <a :href="providerNewPath" class="m-2 btn btn-success">Crear</a>
-    <form method="GET" class="col-12 col-lg-auto mb-3 mb-lg-0 me-lg-3 mb-lg-1" role="search">
-      <input name="q" type="search" class="form-control form-control-light text-dark"
-             placeholder="Buscar..." aria-label="Search">
-    </form>
-    <form class="mb-3 mb-lg-0 me-lg-3 mb-lg-1">
-      <input v-model="filters.email.value" type="text" class="form-control" placeholder="Email...">
-    </form>
-    <form class="mb-3 mb-lg-0 me-lg-3 mb-lg-1">
-      <input v-model="filters.phone.value" type="text" class="form-control" placeholder="Mòbil..">
-    </form>
-    <form class="mb-3 mb-lg-0 me-lg-3 mb-lg-1">
-      <input v-model="filters.businessName.value" type="text" class="form-control" placeholder="Nom de l'empresa...">
-    </form>
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col-12">
+        <div class="align-items-center">
+          <div class="d-flex justify-content-center mb-3">
+            <a :href="providerNewPath" class="m-2 button-text-primary-BHEC btn button-primary-BHEC"><i
+                class="bi bi-plus-square me-1"></i>Nou Proveïdor</a>
+          </div>
+          <div class="d-flex justify-content-center mb-4">
+            <form method="GET" class="d-flex" role="search">
+              <input name="q" type="search" class="rounded-start-pill border border-secondary-subtle"
+                     placeholder="Buscar..." aria-label="Search">
+              <button type="submit" class="btn rounded-end-pill button-searcher-BHEC"><i class="bi bi-search"></i>
+              </button>
+            </form>
+          </div>
+          <!-- <form class="mb-3 mb-lg-0 me-lg-3 mb-lg-1">
+             <input v-model="filters.email.value" type="text" class="form-control" placeholder="Email...">
+           </form>
+           <form class="mb-3 mb-lg-0 me-lg-3 mb-lg-1">
+             <input v-model="filters.phone.value" type="text" class="form-control" placeholder="Mòbil..">
+           </form>
+           <form class="mb-3 mb-lg-0 me-lg-3 mb-lg-1">
+             <input v-model="filters.businessName.value" type="text" class="form-control" placeholder="Nom de l'empresa...">
+           </form>-->
+        </div>
+      </div>
+    </div>
   </div>
-  <table class="table">
-    <thead>
-    <tr>
-      <th>Email</th>
-      <th>Telèfon</th>
-      <th class="d-sm-none">Dni</th>
-      <th class="d-sm-none">Cif</th>
-      <th>Nom de l'empresa</th>
-      <th class="d-sm-none d-md-none">Adreça</th>
-      <th class="d-sm-none d-md-none">Títol bancari</th>
-      <th class="d-sm-none">Nif del jerent</th>
-      <th class="d-sm-none d-md-none">document LOPD</th>
-      <th class="d-sm-none d-md-none">Article de la constitució</th>
-      <th colspan="2">Accions</th>
-    </tr>
-    </thead>
-    <tbody>
-    <tr v-for="provider in filteredProviders" :key="provider.id">
-      <td>{{ provider.email }}</td>
-      <td>{{ provider.phone }}</td>
-      <td class="d-sm-none">{{ provider.dni }}</td>
-      <td class="d-sm-none">{{ provider.cif }}</td>
-      <td>{{ provider.businessName }}</td>
-      <td class="d-sm-none d-md-none">{{ provider.address }}</td>
-      <td class="d-sm-none d-md-none">{{ provider.bankTitle }}</td>
-      <td class="d-sm-none">{{ provider.managerNif }}</td>
-      <td class="d-sm-none d-md-none">{{ provider.LOPDdocFile }}</td>
-      <td class="d-sm-none d-md-none">{{ provider.constitutionArticle }}</td>
-      <td>
-        <a @click="showModal(provider.id)" class="btn btn-outline-dark">Mostrar</a>
-      </td>
-      <td>
-        <a :href="providerEditPath(provider.id)" class="btn btn-primary">Editar</a>
-      </td>
-      <td>
-        <button class="btn btn-dark" @click="deleteProvider(provider.id, token)">Borrar</button>
-      </td>
-    </tr>
-    </tbody>
-  </table>
-  <!-- Modal -->
-  <div class="modal" style="background-color: rgba(0,0,0,0.5)" ref="myModal" tabindex="-1" role="dialog">
-    <div class="modal-dialog" role="document">
-      <div class="modal-content">
-        <div class="modal-header">
-          <h5 class="modal-title">Provider</h5>
-          <button type="button" class="btn-close" @click.stop="hideModal" data-bs-dismiss="modal"
-                  aria-label="Close"></button>
-        </div>
-        <div class="modal-body">
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col-12">
+        <table class="table table-striped">
+          <thead>
+          <tr>
+            <th>Email</th>
+            <th>Telèfon</th>
+            <th class="d-sm-none">Dni</th>
+            <th class="d-sm-none">Cif</th>
+            <th>Nom de l'empresa</th>
+            <th class="d-sm-none d-md-none">Adreça</th>
+            <th class="d-sm-none d-md-none">Títol bancari</th>
+            <th class="d-sm-none">Nif del jerent</th>
+            <th class="d-sm-none d-md-none">document LOPD</th>
+            <th class="d-sm-none d-md-none">Article de la constitució</th>
+            <th colspan="3">Accions</th>
+          </tr>
+          </thead>
+          <tbody>
+          <tr v-for="provider in filteredProviders" :key="provider.id">
+            <td>{{ provider.email }}</td>
+            <td>{{ provider.phone }}</td>
+            <td class="d-sm-none">{{ provider.dni }}</td>
+            <td class="d-sm-none">{{ provider.cif }}</td>
+            <td>{{ provider.businessName }}</td>
+            <td class="d-sm-none d-md-none">{{ provider.address }}</td>
+            <td class="d-sm-none d-md-none">{{ provider.bankTitle }}</td>
+            <td class="d-sm-none">{{ provider.managerNif }}</td>
+            <td class="d-sm-none d-md-none">{{ provider.LOPDdocFile }}</td>
+            <td class="d-sm-none d-md-none">{{ provider.constitutionArticle }}</td>
+            <td>
+              <a @click="showModal(provider.id)" class="btn btn-success"><i class="bi bi-eye-fill"></i></a>
+            </td>
+            <td>
+              <a :href="providerEditPath(provider.id)" class="btn btn-primary"><i class="bi bi-pencil-square"></i></a>
+            </td>
+            <td>
+              <button class="btn btn-danger" @click="deleteProvider(provider.id, token)"><i class="bi bi-trash-fill"></i></button>
+            </td>
+          </tr>
+          </tbody>
+        </table>
+        <!-- Modal -->
+        <div class="modal" style="background-color: rgba(0,0,0,0.5)" ref="myModal" tabindex="-1" role="dialog">
+          <div class="modal-dialog" role="document">
+            <div class="modal-content">
+              <div class="modal-header">
+                <h5 class="modal-title">Provider</h5>
+                <button type="button" class="btn-close" @click.stop="hideModal" data-bs-dismiss="modal"
+                        aria-label="Close"></button>
+              </div>
+              <div class="modal-body">
 
-          <!-- Content goes here -->
-          <!-- You can add form elements, text, etc. -->
-          <div class="modal-confirmation"></div>
-        </div>
-        <div class="modal-footer">
+                <!-- Content goes here -->
+                <!-- You can add form elements, text, etc. -->
+                <div class="modal-confirmation"></div>
+              </div>
+              <div class="modal-footer">
 
+              </div>
+            </div>
+          </div>
         </div>
       </div>
     </div>
@@ -93,11 +112,11 @@ const providerDeletePath = (id) => `/providers/${id}/delete`;
 
 /* Filtratge dels camps de la taula */
 
-const filters = ref( {
-  global: { value: null, matchMode: 'CONSTRAINS' },
-  email: { value: null, matchMode: 'CONSTRAINS' },
-  phone: { value: null, matchMode: 'CONSTRAINS' },
-  businessName: { value: null, matchMode: 'CONSTRAINS' },
+const filters = ref({
+  global: {value: null, matchMode: 'CONSTRAINS'},
+  email: {value: null, matchMode: 'CONSTRAINS'},
+  phone: {value: null, matchMode: 'CONSTRAINS'},
+  businessName: {value: null, matchMode: 'CONSTRAINS'},
 });
 
 const filteredProviders = computed(() => {
@@ -146,7 +165,7 @@ function deleteProvider(providerId, token) {
     token: token
   })
       .then(function (response) {
-        console.log('id: ' +  providerId)
+        console.log('id: ' + providerId)
         console.log(token);
       })
       .catch(function (error) {

@@ -3,7 +3,6 @@
 namespace App\Controller;
 
 use App\Entity\Vehicle;
-use App\Form\Vehicle1Type;
 use App\Form\VehicleType;
 use App\Repository\VehicleRepository;
 use Doctrine\ORM\EntityManagerInterface;

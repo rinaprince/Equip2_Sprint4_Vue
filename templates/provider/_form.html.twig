@@ -1,4 +1,40 @@
-{{ form_start(form, {attr: {'novalidate' : 'novalidate'}}) }}
-    {{ form_widget(form) }}
-    <button class="btn btn-success">{{ button_label|default('Save') }}</button>
+{{ form_start(form) }}
+<div class="container">
+    <div class="row">
+        <div class=" col-6">
+            {{ form_row(form.dni) }}
+        </div>
+        <div class=" col-6">
+            {{ form_row(form.phone) }}
+        </div>
+        <div class=" col-6">
+            {{ form_row(form.email) }}
+        </div>
+        <div class=" col-6">
+            {{ form_row(form.businessName) }}
+        </div>
+        <div class=" col-6">
+            {{ form_row(form.cif) }}
+        </div>
+        <div class=" col-6">
+            {{ form_row(form.managerNif) }}
+        </div>
+        <div class=" col-6">
+            {{ form_row(form.address) }}
+        </div>
+        <div class="d-flex flex-column">
+            <div class="col-4 ms-auto">
+                {{ form_row(form.bankTitleFile) }}
+            </div>
+            <div class="col-4 ms-auto">
+                {{ form_row(form.LOPDdocFile) }}
+            </div>
+            <div class="col-4 ms-auto">
+                {{ form_row(form.constitutionArticleFile) }}
+            </div>
+        </div>
+    </div>
+</div>
+{{ form_widget(form) }}
+<button class="btn button-primary-BHEC">{{ button_label|default('Guardar') }}</button>
 {{ form_end(form) }}
