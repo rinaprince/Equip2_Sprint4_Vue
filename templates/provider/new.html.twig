@@ -4,10 +4,16 @@
 
 {% block body %}
     <div class="d-flex justify-content-center p-5">
-    <h1>Alta de proveïdors</h1>
+        <h1>Alta de proveïdors</h1>
     </div>
 
     {{ include('provider/_form.html.twig') }}
 
-    <a href="{{ path('app_provider_index') }}">back to list</a>
+    <div class="container">
+        <div class="row">
+            <div class="col-12">
+                <a href="{{ path('app_provider_index') }}">Torna enrere</a>
+            </div>
+        </div>
+    </div>
 {% endblock %}

@@ -69,7 +69,6 @@ function sweetAlertDelete(id) {
     }
   });
 }
-
 </script>
 
 <template>

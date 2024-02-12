@@ -1,0 +1,37 @@
+.button-text-primary-BHEC{
+    color: var(--button-text);
+}
+
+.button-primary-BHEC{
+    background-color: var(--button-normal);
+}
+
+.button-primary-BHEC:hover{
+    background-color: var(--button-normal-hover);
+    color: var(--button-text);
+}
+
+.button-searcher-BHEC{
+    background-color: var(--tertiary-color);
+}
+
+.button-searcher-BHEC:hover{
+    background-color: var(--tertiary-color);
+}
+
+.table th{
+    background-color: var(--tertiary-color);
+}
+
+.active > .page-link, .page-link.active {
+    background-color: var(--secundary-color);
+    border-color: var(--secundary-color);
+}
+
+.page-item:first-child .page-link{
+    color: #000000;
+}
+
+.page-item:not(:first-child) .page-link{
+    color: #000000;
+}

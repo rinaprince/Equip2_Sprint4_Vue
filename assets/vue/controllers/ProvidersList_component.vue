@@ -7,7 +7,7 @@
             <div class="d-flex">
               <input name="q" type="search" class="rounded-start-pill border border-secondary-subtle ps-3"
                      placeholder="Buscar..." aria-label="Search">
-              <button type="submit" class="rounded-end-pill button-searcher-BHEC"><i class="bi bi-search"></i>
+              <button type="submit" class="border border-0 rounded-end-pill button-searcher-BHEC p-2"><i class="bi bi-search"></i>
               </button>
             </div>
           </form>
@@ -64,7 +64,7 @@
               <a :href="providerEditPath(provider.id)" class="btn btn-primary"><i class="bi bi-pencil-square"></i></a>
             </td>
             <td>
-              <button class="btn btn-danger" @click="deleteProvider(provider.id, token)"><i
+              <button class="btn btn-danger" @click="sweetAlertDelete(vehicles.id)"><i
                   class="bi bi-trash-fill"></i>
               </button>
             </td>
@@ -100,13 +100,14 @@
 <script setup>
 import axios from 'axios';
 import {ref, computed, watch} from 'vue';
+import Swal from 'sweetalert2';
 
 const props = defineProps(['providers', 'q', 'token']);
 
 const providerIdToDelete = ref(null);
-
 const providerShowPath = (id) => `/providers/${id}`;
 const providerEditPath = (id) => `/providers/${id}/edit`;
+
 const providerNewPath = `/providers/new`;
 const providerDeletePath = (id) => `/providers/${id}/delete`;
 
@@ -136,7 +137,7 @@ const applyFilters = (data, filters) => {
 
 
 // Hacer la solicitud Axios aquí
-function showModal(id) {
+/*function showModal(id) {
   axios.post('/providers/' + id)
       .then(response => {
         // Actualizar el contenido del modal
@@ -151,15 +152,15 @@ function showModal(id) {
       .catch(error => {
         console.error('Error fetching modal content:', error);
       });
-}
+}*/
 
-function hideModal() {
+/*function hideModal() {
   const myModal = document.querySelector('.modal');
   myModal.style.display = 'none';
-}
+}*/
 
 /* Funció per a eliminar al proveïdor */
-function deleteProvider(providerId, token) {
+/*function deleteProvider(providerId, token) {
   axios.post(`/providers/${providerId}/delete`, {
     id: providerId,
     token: token
@@ -171,6 +172,38 @@ function deleteProvider(providerId, token) {
       .catch(function (error) {
         console.error('Error deleting provider:', error);
       });
+}*/
+
+// Sweet Alert per a eliminar
+function sweetAlertDelete(id) {
+  Swal.fire({
+    title: 'Estàs segur?',
+    text: "No podras desfer la teua decissió!",
+    icon: 'warning',
+    showCancelButton: true,
+    confirmButtonColor: '#aa8e31ff',
+    cancelButtonColor: '#d33',
+    confirmButtonText: 'Sí, elimina definitivament!'
+  }).then((result) => {
+    if (result.isConfirmed === true) {
+      axios.post(`/providers/${id}/delete`)
+          .then(response => {
+            Swal.fire({
+              title: "Eliminat!",
+              text: "El vehicle ha sigut eliminat.",
+              icon: "success"
+            });
+          })
+          .catch(error => {
+            console.error(error);
+            Swal.fire({
+              title: "Error",
+              text: "S'ha produït un error en eliminar el vehicle.",
+              icon: "error"
+            });
+          });
+    }
+  });
 }
 
 </script>
