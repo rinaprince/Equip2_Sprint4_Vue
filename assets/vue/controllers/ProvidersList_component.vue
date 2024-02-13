@@ -59,7 +59,9 @@
             <td class="d-sm-none d-md-none">{{ provider.LOPDdocFile }}</td>
             <td class="d-sm-none d-md-none">{{ provider.constitutionArticle }}</td>
             <td>
-              <a @click="showModal(provider.id)" class="btn btn-success"><i class="bi bi-eye-fill"></i></a>
+              <button class="btn btn-success" data-bs-toggle="modal" data-bs-target="#myModal">
+                <i class="bi bi-eye-fill"></i>
+              </button>
             </td>
             <td>
               <a :href="providerEditPath(provider.id)" class="btn btn-primary"><i class="bi bi-pencil-square"></i></a>
@@ -75,23 +77,19 @@
       </div>
     </div>
   </div>
-  <!-- Modal -->
-  <div class="modal" style="background-color: rgba(0,0,0,0.5)" ref="myModal" tabindex="-1" role="dialog">
-    <div class="modal-dialog" role="document">
+  <!-- Modal Mostrar-->
+  <div class="modal" id="myModal" tabindex="-1">
+    <div class="modal-dialog">
       <div class="modal-content">
         <div class="modal-header">
-          <h5 class="modal-title">Provider</h5>
-          <button type="button" class="btn-close" @click.stop="hideModal" data-bs-dismiss="modal"
-                  aria-label="Close"></button>
+          <h5 class="modal-title">Detalls:</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
         </div>
-        <div class="modal-body">
+        <div class="modal-body" id="modalContent">
 
-          <!-- Content goes here -->
-          <!-- You can add form elements, text, etc. -->
-          <div class="modal-confirmation"></div>
         </div>
         <div class="modal-footer">
-
+          <button type="button" class="btn button-primary-BHEC text-white" data-bs-dismiss="modal">Tanca</button>
         </div>
       </div>
     </div>
@@ -102,6 +100,7 @@
 import axios from 'axios';
 import {ref, computed, watch} from 'vue';
 import Swal from 'sweetalert2';
+import vehicle from "primevue/menu";
 
 const props = defineProps(['providers', 'q', 'token']);
 
@@ -136,10 +135,9 @@ const applyFilters = (data, filters) => {
   });
 };
 
-
 // Hacer la solicitud Axios aquí
-/*function showModal(id) {
-  axios.post('/providers/' + id)
+function showModal(id) {
+  axios.get('/providers/'+id)
       .then(response => {
         // Actualizar el contenido del modal
         const modalBody = document.querySelector('.modal-body');
@@ -153,7 +151,7 @@ const applyFilters = (data, filters) => {
       .catch(error => {
         console.error('Error fetching modal content:', error);
       });
-}*/
+}
 
 /*function hideModal() {
   const myModal = document.querySelector('.modal');
