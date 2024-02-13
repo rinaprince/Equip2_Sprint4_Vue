@@ -187,7 +187,7 @@ function sweetAlertDelete(id) {
     confirmButtonText: 'Sí, elimina definitivament!'
   }).then((result) => {
     if (result.isConfirmed === true) {
-      axios.post('/providers/${id}/delete')
+      axios.post('/providers/'+id+'/delete')
           .then(response => {
             Swal.fire({
               title: "Eliminat!",
