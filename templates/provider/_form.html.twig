@@ -1,46 +1,40 @@
-{{ form_start(form) }}
-<div class="container bg-white">
+{{ form_start(form, {'attr': {'class': 'needs-validation', 'novalidate': 'novalidate'}}) }}
+<div class="container-xl container-fluid bg-white">
     <div class="row">
-        <div class="col-6 mt-3">
-            {{ form_row(form.dni, {'label': 'DNI'}) }}
+        <div class="col-xl-6 col-sm-12 mt-3 mb-sm-0">
+            {{ form_row(form.dni, {'label': 'DNI', 'attr': {'class': 'form-control', 'required': 'required'}}) }}
         </div>
-        <div class="col-6 mt-3">
-            {{ form_row(form.phone, {'label': 'Telèfon'}) }}
+        <div class="col-xl-6 col-sm-12 mt-3">
+            {{ form_row(form.phone, {'label': 'Telèfon', 'attr': {'class': 'form-control', 'required': 'required'}}) }}
         </div>
-        <div class="col-6 mt-3">
-            {{ form_row(form.email, {'label': 'Correu electrònic'}) }}
+        <div class="col-xl-6 col-sm-12 mt-3">
+            {{ form_row(form.email, {'label': 'Correu electrònic', 'attr': {'class': 'form-control', 'required': 'required'}}) }}
         </div>
-        <div class="col-6 mt-3">
-            {{ form_row(form.businessName, {'label': 'Nom empresa'}) }}
+        <div class="col-xl-6 col-sm-12 mt-3">
+            {{ form_row(form.businessName, {'label': 'Nom empresa', 'attr': {'class': 'form-control', 'required': 'required'}}) }}
         </div>
-        <div class="col-6 mt-3">
-            {{ form_row(form.cif, {'label': 'CIF'}) }}
+        <div class="col-xl-6 col-sm-12 mt-3">
+            {{ form_row(form.cif, {'label': 'CIF', 'attr': {'class': 'form-control', 'required': 'required'}}) }}
         </div>
-        <div class="col-6 mt-3">
-            {{ form_row(form.address, {'label': 'Direcció'}) }}
+        <div class="col-xl-6 col-sm-12 mt-3">
+            {{ form_row(form.address, {'label': 'Direcció', 'attr': {'class': 'form-control', 'required': 'required'}}) }}
         </div>
-        <div class="col-3 mt-3">
-            {{ form_row(form.bankTitleFile , {'label': 'Titol del banc'}) }}
+        <div class="col-xl-6 col-sm-12 mt-3">
+            {{ form_row(form.managerNif, {'label': 'Nif del manager', 'attr': {'class': 'form-control', 'required': 'required'}}) }}
         </div>
-        <div class="col-3 mt-3">
-            {{ form_row(form.LOPDdocFile, {'label': 'Document LOPD'}) }}
+        <div class="col-xl-6 col-sm-12 mt-3">
+            {{ form_row(form.bankTitleFile , {'label': 'Títol del banc', 'attr': {'class': 'form-control', 'required': 'required'}}) }}
         </div>
-        <div class="col-6 mt-3">
-            {{ form_row(form.managerNif, {'label': 'Nif del manager'}) }}
+        <div class="col-xl-6 col-sm-12 mt-3">
+            {{ form_row(form.LOPDdocFile, {'label': 'Document LOPD', 'attr': {'class': 'form-control', 'required': 'required'}}) }}
         </div>
-        <div class="d-flex justify-content-start">
-            <div class="col-3">
-                {{ form_row(form.constitutionArticleFile, {'label': 'Article de constitució'}) }}
-            </div>
+        <div class="col-xl-6 col-sm-12 mt-3">
+            {{ form_row(form.constitutionArticleFile, {'label': 'Article de constitució', 'attr': {'class': 'form-control', 'required': 'required'}}) }}
         </div>
     </div>
 </div>
 {{ form_widget(form) }}
-<div class="container">
-    <div class="row">
-        <div class="col-12">
-            <button class="button-text-primary-BHEC btn button-primary-BHEC m-5">{{ button_label|default('Guardar') }}</button>
-        </div>
-    </div>
-</div>
+
+<!--<button class="button-text-primary-BHEC btn button-primary-BHEC m-5">{{ button_label|default('Guardar') }}</button>-->
+
 {{ form_end(form) }}

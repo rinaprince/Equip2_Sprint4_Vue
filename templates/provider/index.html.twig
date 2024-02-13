@@ -9,16 +9,16 @@
 
 {% block body %}
     <section>
-        <div class="container">
+        <div class="container-xl container-sm-fluid">
             <div class="row">
                 <div class="col-12">
                     <div class="d-flex justify-content-center mt-5">
-                        <h1>Providers</h1>
+                        <h1>Proveïdors</h1>
                     </div>
                 </div>
             </div>
         </div>
-        <div {{ vue_component('ProvidersList_component', { 'providers': providers, 'token': csrf_token('_token')  }) }}></div>
+        <div class="mx-0 mx-sm-auto" {{ vue_component('ProvidersList_component', { 'providers': providers, 'token': csrf_token('_token')  }) }}></div>
 
         {#  <div {{ vue_component('Tables_component', { 'data': data, 'config': config  }) }}></div> #}
 
