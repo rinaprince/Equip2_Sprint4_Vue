@@ -1,8 +1,6 @@
-<div>
-    <p class="display-6">Are you sure?</p>
-    <div>
-        <button type="submit" class="btn btn-success">Yes</button>
-        <button type="button" class="btn btn-danger">No</button>
-    </div>
-    {{ dump(request) }}
+<div class="d-flex mt-3 mb-3">
+    <form method="post" id="sweetAlertDelete" action="{{ path('app_provider_delete', {'id': provider.id}) }}">
+        <input type="hidden" name="_token" value="{{ csrf_token('delete' ~ provider.id) }}">
+        <button type="button" class="btn btn-danger">Esborrar</button>
+    </form>
 </div>

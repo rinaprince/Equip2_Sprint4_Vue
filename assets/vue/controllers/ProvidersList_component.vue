@@ -7,7 +7,8 @@
             <div class="d-flex">
               <input name="q" type="search" class="rounded-start-pill border border-secondary-subtle ps-3"
                      placeholder="Buscar..." aria-label="Search">
-              <button type="submit" class="border border-0 rounded-end-pill button-searcher-BHEC p-2"><i class="bi bi-search"></i>
+              <button type="submit" class="border border-0 rounded-end-pill button-searcher-BHEC p-2"><i
+                  class="bi bi-search"></i>
               </button>
             </div>
           </form>
@@ -64,7 +65,7 @@
               <a :href="providerEditPath(provider.id)" class="btn btn-primary"><i class="bi bi-pencil-square"></i></a>
             </td>
             <td>
-              <button class="btn btn-danger" @click="sweetAlertDelete(vehicles.id)"><i
+              <button class="btn btn-danger" @click="sweetAlertDelete(provider.id)"><i
                   class="bi bi-trash-fill"></i>
               </button>
             </td>
@@ -186,7 +187,7 @@ function sweetAlertDelete(id) {
     confirmButtonText: 'Sí, elimina definitivament!'
   }).then((result) => {
     if (result.isConfirmed === true) {
-      axios.post(`/providers/${id}/delete`)
+      axios.post('/providers/${id}/delete')
           .then(response => {
             Swal.fire({
               title: "Eliminat!",
